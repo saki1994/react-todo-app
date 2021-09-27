@@ -7,7 +7,7 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 <hr>
 
 * Overview
-    [The challenge]
+    * [The challenge]
     * Links
     * Built with
     * What I learned

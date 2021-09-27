@@ -30,3 +30,11 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 ### Author
 * Sarah Atici
 * Frontend Mentor - [@saki1994](https://www.frontendmentor.io/profile/saki1994)
+
+
+## Stuff to do
+
+1. Create Components
+    * Input component
+    * List components
+    * Bottom navbar

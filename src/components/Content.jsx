@@ -26,13 +26,14 @@ const Content = () => {
   return (
     <main>
       <AddList addTodoList={addTodoList} />
+      
+      <div>
       <ul>
        {/* map through array and render each to do list */}
         {todoList.map((list, index) => (
           <List key={index} id={index} text={list} onDelete={deleteList}/>
         ))}
       </ul>
-      <div>
         <Paragraph text={"5 items left"} />
         <Paragraph text={"All"} />
         <Paragraph text={"Active"} />

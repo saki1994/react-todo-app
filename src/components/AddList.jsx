@@ -29,6 +29,7 @@ const AddList = ({addTodoList}) => {
   
   return (
     <form action="#" onKeyPress={handleClick}>
+     <span><input type="checkbox" /></span>
       <input 
         onChange={handleChange}
         type="text"

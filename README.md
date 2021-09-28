@@ -34,22 +34,22 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
 ## Stuff to do
 
-1. Create Components
-    * Input component - all done
-    * List components - all done
-    * Bottom navbar - all done
-    * Footer - all done
- > First step done
+1. Create Components - done
+    * Input component 
+    * List components 
+    * Bottom navbar 
+    * Footer 
+  
  > Next: Add a list functionality.
 
- 2. Add a list functionality.
- > Done
+ 2. Add a list functionality - done
  > Next: Add comments
 
- 3. Add comments
- > Done
+ 3. Add comments - done
  > Next: Delete list functionality
 
- 4. Delete list functionalit
- > Done
- > Next: Apply style for Header and Body
+ 4. Delete list functionality - done
+ > Next: Apply style  (SASS) for Header and Body 
+
+ 5. Apply SASS, header and background img setup - done
+ > Next: Form and List style

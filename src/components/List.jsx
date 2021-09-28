@@ -9,7 +9,7 @@ const List = ({ text, onDelete, id }) => {
       </li>
       
       {/* Event onClick calls onDelete and pass in the id */}
-      <button onClick={() => onDelete(id)} > x</button>
+      <button onClick={() => onDelete(id)} ><img src="/images/icon-cross.svg" alt="delete-icon"></img></button>
     </>
   );
 };

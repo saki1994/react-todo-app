@@ -35,6 +35,9 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 ## Stuff to do
 
 1. Create Components
-    * Input component
-    * List components
-    * Bottom navbar
+    * Input component - all done
+    * List components - all done
+    * Bottom navbar - all done
+    * Footer - all done
+ > First step done
+ > Next: Add a list functionality.

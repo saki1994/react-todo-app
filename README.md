@@ -49,3 +49,7 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  3. Add comments
  > Done
  > Next: Delete list functionality
+
+ 4. Delete list functionalit
+ > Done
+ > Next: Apply style for Header and Body

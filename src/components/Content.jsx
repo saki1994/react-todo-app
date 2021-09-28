@@ -4,8 +4,10 @@ import List from "./List";
 import Paragraph from "./Paragraph";
 
 const Content = () => {
+  //An array of list user input
   const [todoList, setsTodoList] = useState([]);
 
+  //function to add all to do in todoList variable.
   const addTodoList = (textInput) => {
     setsTodoList(prev => {
         return [...prev, textInput]
@@ -15,6 +17,7 @@ const Content = () => {
     <main>
       <AddList addTodoList={addTodoList} />
       <ul>
+       {/* map through array and render each to do list */}
         {todoList.map((list, index) => (
           <List key={index} id={index} text={list} />
         ))}

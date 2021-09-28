@@ -45,3 +45,7 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  2. Add a list functionality.
  > Done
  > Next: Add comments
+
+ 3. Add comments
+ > Done
+ > Next: Delete list functionality

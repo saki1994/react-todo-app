@@ -1,9 +1,15 @@
 import React from "react";
 
-const List = () => {
-    return ( 
-        <li><input type="checkbox" />Jog around the park</li>
-    )
-}
+const List = ({ text }) => {
+  return (
+    <>
+      <li>
+        <input type="checkbox" />
+        {text}
+      </li>
+      <button>x</button>
+    </>
+  );
+};
 
-export default List
+export default List;

@@ -41,3 +41,7 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
     * Footer - all done
  > First step done
  > Next: Add a list functionality.
+
+ 2. Add a list functionality.
+ > Done
+ > Next: Add comments

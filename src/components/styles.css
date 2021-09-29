@@ -58,7 +58,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 30px;
+  gap: 35px;
 }
 
 .container main > * {
@@ -135,5 +135,30 @@ body {
 
 .container main .bottom-navbar p:first-child {
   margin-right: auto;
+}
+
+.container main .bottom-navbar .navbar-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container main .bottom-navbar .navbar-btn:hover {
+  color: #3a7bfd;
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+  .background {
+    height: 250px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -6,13 +6,13 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 ## Table of Contents 
 
 * Overview
-    * The challenge
-    * Links
-    * Built with
-    * What I learned
-    * Continued development
-    * Useful resources
-    * Duration
+    ### The challenge
+    ### Links
+    ### Built with
+    ### What I learned
+    ### Continued development
+    ### Useful resources
+    ### Duration
 * Author
  
  ### The challenge
@@ -25,6 +25,9 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
     * JS
     * CSS3
     * SASS
+
+### Duration
+    * Start : September 27, 2021 (Monday)
 
 
 ### Author
@@ -56,3 +59,6 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
  6. Form and List Style - done
  > Next: Add media queries for responsive page.
+
+ 7. Media queries - done
+ > Next: Fix navbar bottom

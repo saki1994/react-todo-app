@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddList from "./AddList";
 import List from "./List";
 import Paragraph from "./Paragraph";
+import Button from "./Button";
 
 const Content = () => {
   //An array of list user input
@@ -43,10 +44,10 @@ const Content = () => {
       </ul>
       <div className="bottom-navbar">
         <Paragraph text={"5 items left"} />
-        <Paragraph text={"All"} />
-        <Paragraph text={"Active"} />
-        <Paragraph text={"Complete"} />
-        <Paragraph text={"Clear Completed"} />
+        <Button text={"All"} />
+        <Button text={"Active"} />
+        <Button text={"Complete"} />
+        <Button text={"Clear Completed"} />
         </div>
       </div>
     </main>

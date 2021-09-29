@@ -41,7 +41,7 @@ body {
   main {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px; 
 
     & > * {
       border-radius: 5px;
@@ -109,7 +109,33 @@ body {
       & p:first-child {
         margin-right: auto;
       }
+
+      .navbar-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        &:hover {
+          color:   hsl(220, 98%, 61%);
+        }
+      }
  
     }
   }
 }
+
+@media only screen and (max-width: 992px ) {
+  .container {
+   width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px ) {
+  .container {
+   width: 80%;
+  } 
+  .background {
+    height: 250px;
+  }
+}
+ 

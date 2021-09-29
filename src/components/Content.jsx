@@ -5,7 +5,14 @@ import Paragraph from "./Paragraph";
 
 const Content = () => {
   //An array of list user input
-  const [todoList, setTodoList] = useState(["Cook", "Eat", "Clean"]);
+  const [todoList, setTodoList] = useState([
+    "Complete online Javascript course",
+    "Jog around the park 3x",
+    "10 minutes meditation",
+    "Read for 1 hours",
+    "Pick up groceries",
+    "Complete Todo App on FrontEnd Mentor" 
+  ]);
 
   //function to add a list.
   const addTodoList = (textInput) => {
@@ -27,18 +34,20 @@ const Content = () => {
     <main>
       <AddList addTodoList={addTodoList} />
       
-      <div>
+      <div className="todo-box">
       <ul>
        {/* map through array and render each to do list */}
         {todoList.map((list, index) => (
           <List key={index} id={index} text={list} onDelete={deleteList}/>
         ))}
       </ul>
+      <div className="bottom-navbar">
         <Paragraph text={"5 items left"} />
         <Paragraph text={"All"} />
         <Paragraph text={"Active"} />
         <Paragraph text={"Complete"} />
         <Paragraph text={"Clear Completed"} />
+        </div>
       </div>
     </main>
   );

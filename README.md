@@ -53,3 +53,6 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
  5. Apply SASS, header and background img setup - done
  > Next: Form and List style
+
+ 6. Form and List Style - done
+ > Next: Add media queries for responsive page.

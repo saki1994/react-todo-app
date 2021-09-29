@@ -5,13 +5,15 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-.background{
- position:absolute;
- z-index: -1;
+.background {
+  position: absolute;
+  z-index: -1;
 }
-.container {  
+
+.container {
   width: 40%;
   margin: auto;
   display: flex;
@@ -22,25 +24,92 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
-    
+    margin-top: 1rem;
+
     h1 {
-        margin: 0;
-        letter-spacing: 10px;
-        color: #fff;
+      margin: 0;
+      letter-spacing: 10px;
+      color: #fff;
+      font-size: 2em;
     }
     img {
-        width: 25px;
-        height: 25px;
+      width: 25px;
+      height: 25px;
     }
   }
 
   main {
     display: flex;
     flex-direction: column;
-    gap: 30px; 
+    gap: 30px;
 
-    &>* {
-       border: 1px solid black;
-    } 
+    & > * {
+      border-radius: 5px;
+    }
+
+    form {
+      background: #fff;
+      padding: 6px 0 5px 20px;
+
+      .add-task {
+        padding: 15px;
+        width: 60%;
+        border: none;
+        font-size: 15px;
+        outline: none;
+      }
+    }
+
+    .todo-box {
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 1); 
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(4.9px);
+      -webkit-backdrop-filter: blur(4.9px);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+    }
+    ul {
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
+
+      li {
+        display: flex;
+        margin: auto;
+        padding: 20px;
+        border-bottom: 1px solid grey;
+
+        .todo-list {
+          padding: 3px 0 0 15px;
+        }
+
+        button {
+          margin-left: auto;
+          background: none;
+          border: none;
+
+          img {
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    .bottom-navbar {
+      display: flex;
+      padding: 10px 20px;
+      font-size: 12px; 
+      gap: 15px;
+      justify-content: center;
+
+      & p:last-child {
+        margin-left: auto;
+      }
+
+      & p:first-child {
+        margin-right: auto;
+      }
+ 
+    }
   }
 }

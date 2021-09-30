@@ -198,6 +198,7 @@ input[type="checkbox"]:checked::after {
   padding: 5px 5px 4px 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: inherit;
 }
 
 @media only screen and (max-width: 992px) {

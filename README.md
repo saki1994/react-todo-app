@@ -64,4 +64,8 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  > Next: Fix bottom navbar
 
  8. Fix bottom navbar - done
- > Next: Checkbox functionality
+ > Next: Checkbox style
+
+ 9. Checkbox style - done
+ > Next: Apply line through to input
+ 

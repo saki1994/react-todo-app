@@ -30,7 +30,7 @@ body {
       margin: 0;
       letter-spacing: 10px;
       color: #fff;
-      font-size: 2em;
+      font-size: 2.5em;
     }
     img {
       width: 25px;
@@ -41,7 +41,7 @@ body {
   main {
     display: flex;
     flex-direction: column;
-    gap: 35px; 
+    gap: 35px;
 
     & > * {
       border-radius: 5px;
@@ -60,9 +60,10 @@ body {
       }
     }
 
-    .todo-box {
+    .todo-box,
+    .filter-tab {
       border-radius: 5px;
-      background: rgba(255, 255, 255, 1); 
+      background: rgba(255, 255, 255, 1);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4.9px);
       -webkit-backdrop-filter: blur(4.9px);
@@ -97,18 +98,10 @@ body {
 
     .bottom-navbar {
       display: flex;
-      padding: 10px 20px;
-      font-size: 12px; 
+      padding: 15px 20px;
+      font-size: 12px;
       gap: 15px;
-      justify-content: center;
-
-      & p:last-child {
-        margin-left: auto;
-      }
-
-      & p:first-child {
-        margin-right: auto;
-      }
+      justify-content: space-between;
 
       .navbar-btn {
         border: none;
@@ -116,26 +109,46 @@ body {
         cursor: pointer;
 
         &:hover {
-          color:   hsl(220, 98%, 61%);
+          color: hsl(220, 98%, 61%);
         }
       }
- 
+
+      & > * {
+        margin: 0;
+      }
+    }
+
+    .filter-tab {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      & button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 18px;
+
+        &:hover {
+          color: hsl(220, 98%, 61%);
+        }
+      }
     }
   }
 }
 
-@media only screen and (max-width: 992px ) {
+@media only screen and (max-width: 992px) {
   .container {
-   width: 70%;
+    width: 70%;
   }
 }
 
-@media only screen and (max-width: 768px ) {
+@media only screen and (max-width: 768px) {
   .container {
-   width: 80%;
-  } 
+    width: 80%;
+  }
   .background {
     height: 250px;
   }
 }
- 

@@ -7,7 +7,7 @@ const List = ({ text, onDelete, id }) => {
   return (
    
       <li> 
-      <FontAwesomeIcon icon={ faCircle } color="white" size="m" style={{border: "1px solid grey", borderRadius: "50%"}}/>
+      <FontAwesomeIcon icon={ faCircle } color="white" style={{border: "1px solid grey", borderRadius: "50%"}}/>
 
         <span className="todo-list">{text}</span>
         {/* Event onClick calls onDelete and pass in the id */}

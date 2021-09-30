@@ -15,13 +15,16 @@ const Content = () => {
     "Complete Todo App on FrontEnd Mentor",
   ]);
 
+  // Array of checked list
+  const [checkedList, setCheckedList] = useState([]);
+
   //Checks if the screen size is mobile or not.
   const [isMobileSize, setIsMobileSize] = useState(false);
-  
+
   //IIFE checks the screensize
-  (function getScreen() { 
+  (function getScreen() {
     window.screen.width === 370 && setIsMobileSize(true);
-  }());
+  })();
 
   //function to add a list.
   const addTodoList = (textInput) => {
@@ -40,9 +43,12 @@ const Content = () => {
     });
   };
 
-  const isCheckboxClick = () => {
-    console.log('Click')
-  }
+  const isCheckboxClick = (id) => {
+    setCheckedList((lists) => {
+      return [...lists, id];
+    });
+  };
+
   return (
     <main>
       <AddList addTodoList={addTodoList} />
@@ -51,13 +57,19 @@ const Content = () => {
         <ul>
           {/* map through array and render each to do list */}
           {todoList.map((list, index) => (
-            <List key={index} id={index} text={list} onDelete={deleteList} onCheck={isCheckboxClick}/>
+            <List
+              key={index}
+              id={index}
+              text={list}
+              onDelete={deleteList}
+              onCheck={isCheckboxClick}
+            />
           ))}
         </ul>
         <div className="bottom-navbar">
-          <Paragraph text={"5 items left"} />
+          <Paragraph text={todoList.length + " items left"} />
 
-           {/* if screen size < 370 */}
+          {/* if screen size < 370 */}
           {!isMobileSize && (
             <div>
               <Button text={"All"} />
@@ -68,15 +80,15 @@ const Content = () => {
           <Button text={"Clear Completed"} />
         </div>
       </div>
-      
+
       {/* if screen size > 370 */}
       {isMobileSize && (
-          <div className="filter-tab">
-            <Button text={"All"} />
-            <Button text={"Active"} />
-            <Button text={"Completed"} />
-          </div>
-        )}
+        <div className="filter-tab">
+          <Button text={"All"} />
+          <Button text={"Active"} />
+          <Button text={"Completed"} />
+        </div>
+      )}
     </main>
   );
 };

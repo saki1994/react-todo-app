@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   font-family: "Josefin Sans", sans-serif;
 }
@@ -42,7 +43,7 @@ body {
   margin: 0;
   letter-spacing: 10px;
   color: #fff;
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .container header img {
@@ -78,7 +79,8 @@ body {
   outline: none;
 }
 
-.container main .todo-box {
+.container main .todo-box,
+.container main .filter-tab {
   border-radius: 5px;
   background: white;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -103,6 +105,12 @@ body {
   border-bottom: 1px solid grey;
 }
 
+.container main ul li .checkbox-icon {
+  border: 1px solid grey;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .container main ul li .todo-list {
   padding: 3px 0 0 15px;
 }
@@ -121,20 +129,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-size: 12px;
   gap: 15px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.container main .bottom-navbar p:last-child {
-  margin-left: auto;
-}
-
-.container main .bottom-navbar p:first-child {
-  margin-right: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .container main .bottom-navbar .navbar-btn {
@@ -145,6 +145,59 @@ body {
 
 .container main .bottom-navbar .navbar-btn:hover {
   color: #3a7bfd;
+}
+
+.container main .bottom-navbar > * {
+  margin: 0;
+}
+
+.container main .filter-tab {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+
+.container main .filter-tab button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.container main .filter-tab button:hover {
+  color: #3a7bfd;
+}
+
+input[type="checkbox"]::after {
+  top: -3px;
+  position: relative;
+  left: -2px;
+  padding: 0px 9px 6px 10px;
+  border: 1px solid grey;
+  content: "";
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked::after {
+  top: -1px;
+  position: relative;
+  left: -2px;
+  color: white;
+  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to bottom right, #57ddff, #c058f3);
+  content: "✔";
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 5px 5px 4px 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media only screen and (max-width: 992px) {

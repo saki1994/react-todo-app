@@ -17,13 +17,11 @@ const Content = () => {
 
   //Checks if the screen size is mobile or not.
   const [isMobileSize, setIsMobileSize] = useState(false);
-
-  function getScreen() {
-    console.log(window.screen.width, window.screen.height);
-    window.screen.width === 750 && console.log("size is 750");
-  }
-
-  getScreen();
+  
+  //IIFE checks the screensize
+  (function getScreen() { 
+    window.screen.width === 370 && setIsMobileSize(true);
+  }());
 
   //function to add a list.
   const addTodoList = (textInput) => {
@@ -41,6 +39,10 @@ const Content = () => {
       });
     });
   };
+
+  const isCheckboxClick = () => {
+    console.log('Click')
+  }
   return (
     <main>
       <AddList addTodoList={addTodoList} />
@@ -49,11 +51,13 @@ const Content = () => {
         <ul>
           {/* map through array and render each to do list */}
           {todoList.map((list, index) => (
-            <List key={index} id={index} text={list} onDelete={deleteList} />
+            <List key={index} id={index} text={list} onDelete={deleteList} onCheck={isCheckboxClick}/>
           ))}
         </ul>
         <div className="bottom-navbar">
           <Paragraph text={"5 items left"} />
+
+           {/* if screen size < 370 */}
           {!isMobileSize && (
             <div>
               <Button text={"All"} />
@@ -64,6 +68,8 @@ const Content = () => {
           <Button text={"Clear Completed"} />
         </div>
       </div>
+      
+      {/* if screen size > 370 */}
       {isMobileSize && (
           <div className="filter-tab">
             <Button text={"All"} />

@@ -3,6 +3,7 @@ import AddList from "./AddList";
 import List from "./List";
 import Paragraph from "./Paragraph";
 import Button from "./Button";
+import { useLayoutEffect } from "react/cjs/react.development";
 
 const Content = () => {
   //An array of list user input
@@ -16,10 +17,11 @@ const Content = () => {
       text: "Jog around the park 3x",
       id: 1,
       listStatus: false,
-    }
+    },
   ]);
 
   const [completedList, setCompletedList] = useState([]);
+  const [activeList, setActiveList] = useState([]);
 
   //Checks if the screen size is mobile or not.
   const [isMobileSize, setIsMobileSize] = useState(false);
@@ -48,13 +50,15 @@ const Content = () => {
 
   //Change status of a list to true
   const isCheckboxClick = (id, value) => {
-    const newItem = todoList.filter((item) => item.id === id);
+    let elementIndex = todoList.findIndex((element) => element.id === id);
+    let newArr = [...todoList];
 
-    setCompletedList((previous) => {
-      return [...previous, newItem];
-    });
+    newArr[elementIndex] = { ...newArr[elementIndex], listStatus: value };
+
+    setTodoList(newArr);
   };
 
+  console.log(todoList);
   return (
     <main>
       <AddList addTodoList={addTodoList} />

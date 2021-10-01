@@ -73,7 +73,9 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  > Next: Change Array todolist to Object
 
  11. Change Array todolist to Object - done
- > Next: Save active to a different variable
+ > Next: Change list status 
 
+ 12. Change list status
+ > Next: Filter completed items
 
  

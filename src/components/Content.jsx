@@ -6,18 +6,10 @@ import Button from "./Button";
 
 const Content = () => {
   //An array of list user input
-  const [todoList, setTodoList] = useState([
-    "Complete online Javascript course",
-    "Jog around the park 3x",
-    "10 minutes meditation",
-    "Read for 1 hours",
-    "Pick up groceries",
-    "Complete Todo App on FrontEnd Mentor",
-  ]);
+  const [todoList, setTodoList] = useState([]);
 
-  // Array of checked list
-  const [checkedList, setCheckedList] = useState([]);
-
+  const [completedList, setCompletedList] = useState([]);
+    
   //Checks if the screen size is mobile or not.
   const [isMobileSize, setIsMobileSize] = useState(false);
 
@@ -26,43 +18,47 @@ const Content = () => {
     window.screen.width === 370 && setIsMobileSize(true);
   })();
 
-  //function to add a list.
-  const addTodoList = (textInput) => {
+  // function to add a list.
+  const addTodoList = (inputList) => {
     setTodoList((prev) => {
-      return [...prev, textInput];
+      return [...prev, inputList];
     });
   };
 
   //Function to delete a list
   const deleteList = (id) => {
     //return all list except the list with param(id)
-    setTodoList((lists) => {
-      return lists.filter((list, index) => {
-        return index !== id;
+    setTodoList((prev) => {
+      return prev.filter((item) => {
+        return item.id !== id;
       });
     });
   };
 
-  const isCheckboxClick = (id) => {
-    setCheckedList((lists) => {
-      return [...lists, id];
-    });
-  };
+  //Change status of a list to true
+  const isCheckboxClick = (id, value) => { 
+    
+    const newItem = todoList.filter(item => item.id === id)
+    
+    setCompletedList(previous => {
+      return [...previous, newItem]
+    })
+   };  
 
+ 
   return (
     <main>
-      <AddList addTodoList={addTodoList} />
+      <AddList addTodoList={addTodoList}/>
 
       <div className="todo-box">
         <ul>
-          {/* map through array and render each to do list */}
-          {todoList.map((list, index) => (
+          {todoList.map((item) => (
             <List
-              key={index}
-              id={index}
-              text={list}
+              text={item.text}
+              key={item.id}
+              id={item.id}
               onDelete={deleteList}
-              onCheck={isCheckboxClick}
+              onCheckList={isCheckboxClick}
             />
           ))}
         </ul>
@@ -72,12 +68,12 @@ const Content = () => {
           {/* if screen size < 370 */}
           {!isMobileSize && (
             <div>
-              <Button text={"All"} />
-              <Button text={"Active"} />
-              <Button text={"Completed"} />
+              <Button id="all" text={"All"} />
+              <Button id="active" text={"Active"} />
+              <Button id="completed" text={"Completed"} />
             </div>
           )}
-          <Button text={"Clear Completed"} />
+          <Button id="clearCompleted" text={"Clear Completed"}   />
         </div>
       </div>
 

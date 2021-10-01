@@ -70,7 +70,10 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  > Next: Apply line through to input
 
  10. Apply line through to input - done
- > Next: Filter for bottom navbar "All"
+ > Next: Change Array todolist to Object
+
+ 11. Change Array todolist to Object - done
+ > Next: Save active to a different variable
 
 
  

@@ -6,10 +6,21 @@ import Button from "./Button";
 
 const Content = () => {
   //An array of list user input
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState([
+    {
+      text: "Complete online Javascript course",
+      id: 0,
+      listStatus: false,
+    },
+    {
+      text: "Jog around the park 3x",
+      id: 1,
+      listStatus: false,
+    }
+  ]);
 
   const [completedList, setCompletedList] = useState([]);
-    
+
   //Checks if the screen size is mobile or not.
   const [isMobileSize, setIsMobileSize] = useState(false);
 
@@ -36,19 +47,17 @@ const Content = () => {
   };
 
   //Change status of a list to true
-  const isCheckboxClick = (id, value) => { 
-    
-    const newItem = todoList.filter(item => item.id === id)
-    
-    setCompletedList(previous => {
-      return [...previous, newItem]
-    })
-   };  
+  const isCheckboxClick = (id, value) => {
+    const newItem = todoList.filter((item) => item.id === id);
 
- 
+    setCompletedList((previous) => {
+      return [...previous, newItem];
+    });
+  };
+
   return (
     <main>
-      <AddList addTodoList={addTodoList}/>
+      <AddList addTodoList={addTodoList} />
 
       <div className="todo-box">
         <ul>
@@ -73,7 +82,7 @@ const Content = () => {
               <Button id="completed" text={"Completed"} />
             </div>
           )}
-          <Button id="clearCompleted" text={"Clear Completed"}   />
+          <Button id="clearCompleted" text={"Clear Completed"} />
         </div>
       </div>
 

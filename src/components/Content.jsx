@@ -58,7 +58,28 @@ const Content = () => {
     setTodoList(newArr);
   };
 
-  console.log(todoList);
+  const handleClick = (id) => {
+    const getAllTrue = todoList.filter((item) => {
+      return item.listStatus === true;
+    });
+
+    const getAllFalse = todoList.filter((item) => {
+      return item.listStatus === false;
+    });
+
+    if (id === "completed") {
+      setCompletedList(getAllTrue);
+    } else if (id === "active") {
+      setActiveList(getAllFalse);
+    } else if (id === "clearCompleted") {
+      setTodoList((allItems) => {
+        return allItems.filter((item) => {
+          return item.listStatus !== true;
+        });
+      });
+    }
+  };
+ 
   return (
     <main>
       <AddList addTodoList={addTodoList} />
@@ -82,11 +103,19 @@ const Content = () => {
           {!isMobileSize && (
             <div>
               <Button id="all" text={"All"} />
-              <Button id="active" text={"Active"} />
-              <Button id="completed" text={"Completed"} />
+              <Button id="active" text={"Active"} handleClick={handleClick} />
+              <Button
+                id="completed"
+                text={"Completed"}
+                handleClick={handleClick}
+              />
             </div>
           )}
-          <Button id="clearCompleted" text={"Clear Completed"} />
+          <Button
+            id="clearCompleted"
+            text={"Clear Completed"}
+            handleClick={handleClick}
+          />
         </div>
       </div>
 

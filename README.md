@@ -78,4 +78,7 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  12. Change list status
  > Next: Filter completed items
 
+ 13. Filter completed, active & clear complete (func)
+ > Next: Create a diff folder for logic
+
  

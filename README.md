@@ -78,7 +78,20 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  12. Change list status
  > Next: Filter completed items
 
- 13. Filter completed, active & clear complete (func)
- > Next: Create a diff folder for logic
+ 13. Filter completed, active & clear complete (func) - done
+ > Next: Style checkbox btn in Mozilla
 
+ 14. Next: Style checkbox btn in Mozilla - done 
+ > Next: Add gradient color for checkbox
+
+
+
+ #### Remaining to do
+ * Dark Mode
+ * drag and drop
+ * label style
+ * Render complete, active and all
+ * Style drag and drop
+
+ 
  

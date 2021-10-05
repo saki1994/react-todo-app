@@ -87,6 +87,9 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 15. Added conditional when li is hover
 > Next: Style checkbox
 
+16. Styke checkbox - done
+> Next: Adjust checkbox style
+
 
  #### Remaining to do
  * Dark Mode

@@ -13,33 +13,32 @@ const List = ({ text, onDelete, id, onCheckList }) => {
     onDelete(id);
   };
 
-  const handleMouseOver =() => {
-    setIsMouseOver(true); 
-  }
+  const handleMouseOver = () => {
+    setIsMouseOver(true);
+  };
 
-  const handleMouseOut =() => {
-    setIsMouseOver(false); 
-  }
+  const handleMouseOut = () => {
+    setIsMouseOver(false);
+  };
 
   return (
     <li onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-       <label>
-    <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
-   <span></span></label> 
+      <label className={isMouseOver || isBoxChecked ? "hovered-label" : "unhovered-label"}>
+        <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
+        <span></span>
+      </label>
       <span
         style={{ textDecoration: isBoxChecked ? "line-through" : "none" }}
         className="todo-list"
       >
         {text}
       </span>
-      {/* Event onClick calls onDelete and pass in the id */} 
-      {isMouseOver && 
-      (
+      {/* Event onClick calls onDelete and pass in the id */}
+      {isMouseOver && (
         <button onClick={handleClick}>
-        <img src="/images/icon-cross.svg" alt="delete-icon"></img>
-      </button>
+          <img src="/images/icon-cross.svg" alt="delete-icon"></img>
+        </button>
       )}
-      
     </li>
   );
 };

@@ -82,8 +82,10 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  > Next: Style checkbox btn in Mozilla
 
  14. Next: Style checkbox btn in Mozilla - done 
- > Next: Add gradient color for checkbox
+ > Next: Added conditional when li is hover
 
+15. Added conditional when li is hover
+> Next: Style checkbox
 
 
  #### Remaining to do

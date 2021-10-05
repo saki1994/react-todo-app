@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const List = ({ text, onDelete, id, onCheckList }) => {
   const [isBoxChecked, setIsBoxChecked] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
   const checkBoxStatus = (event) => {
     event.target.checked ? setIsBoxChecked(true) : setIsBoxChecked(false);
@@ -12,9 +13,17 @@ const List = ({ text, onDelete, id, onCheckList }) => {
     onDelete(id);
   };
 
+  const handleMouseOver =() => {
+    setIsMouseOver(true); 
+  }
+
+  const handleMouseOut =() => {
+    setIsMouseOver(false); 
+  }
+
   return (
-    <li>
-       <label style={{backgroundColor: isBoxChecked ? "hsl(280, 87%, 65%)" : "white"}}>
+    <li onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+       <label>
     <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
    <span></span></label> 
       <span
@@ -23,10 +32,14 @@ const List = ({ text, onDelete, id, onCheckList }) => {
       >
         {text}
       </span>
-      {/* Event onClick calls onDelete and pass in the id */}
-      <button onClick={handleClick}>
+      {/* Event onClick calls onDelete and pass in the id */} 
+      {isMouseOver && 
+      (
+        <button onClick={handleClick}>
         <img src="/images/icon-cross.svg" alt="delete-icon"></img>
       </button>
+      )}
+      
     </li>
   );
 };

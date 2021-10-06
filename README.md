@@ -97,7 +97,10 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 > Next: Add style to rendered check list
 
 19. Add style to rendered check list - done
-> Next: Add Dark mode
+> Next: Create function to render btn and li
+
+20. reate function to render btn and li - done
+> Next: Clean up SASS file
 
 
  #### Remaining to do

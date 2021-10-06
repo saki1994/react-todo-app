@@ -5,7 +5,6 @@ import Paragraph from "./Paragraph";
 import Button from "./Button";
 
 const Content = () => {
-
   //An array of list user input
   const [todoList, setTodoList] = useState([
     {
@@ -21,11 +20,11 @@ const Content = () => {
   ]);
 
   const [completedList, setCompletedList] = useState([]);
-  const [activeList, setActiveList] = useState([]); 
+  const [activeList, setActiveList] = useState([]);
 
   const [completedBtnClicked, setCompletedBtnClicked] = useState(false);
   const [activeBtnClicked, setActiveBtnClicked] = useState(false);
-  const [allBtnClicked, setAllBtnClicked] =  useState(true);
+  const [allBtnClicked, setAllBtnClicked] = useState(true);
 
   // function to add a list.
   const addTodoList = (inputList) => {
@@ -64,83 +63,73 @@ const Content = () => {
     });
 
     const allItem = [...todoList];
- 
+
     if (id === "completed") {
-      setCompletedList(getAllTrue);  
+      setCompletedList(getAllTrue);
       setCompletedBtnClicked(true);
       setActiveBtnClicked(false);
       setAllBtnClicked(false);
-       
     } else if (id === "active") {
       setActiveList(getAllFalse);
       setCompletedBtnClicked(false);
       setActiveBtnClicked(true);
       setAllBtnClicked(false);
-       
-    }  else if (id === "all") {
+    } else if (id === "all") {
       setAllBtnClicked(allItem);
       setCompletedBtnClicked(false);
       setActiveBtnClicked(false);
-
     } else if (id === "clearCompleted") {
       setTodoList((allItems) => {
         return allItems.filter((item) => {
           return item.listStatus !== true;
         });
       });
-    } 
+    }
   };
 
-  const renderList =  (text, id, listStatus) => {
-    return <List text={text}
-    key={id}
-    id={id}
-    onDelete={deleteList}
-    onCheckList={isCheckboxClick} 
-    listStatus={listStatus}
-    />
-  }
+  const renderList = (text, id, listStatus) => {
+    return (
+      <List
+        text={text}
+        key={id}
+        id={id}
+        onDelete={deleteList}
+        onCheckList={isCheckboxClick}
+        listStatus={listStatus}
+      />
+    );
+  };
+
+  const renderButton = (text, id, clickEvent) => {
+    return <Button id={id} text={text} handleClick={clickEvent} />;
+  };
 
   return (
-    <main> 
+    <main>
       <AddList addTodoList={addTodoList} />
 
       <div className="todo-box">
         <ul>
-        { 
-          activeBtnClicked && (
-            activeList.map((item) => (
-            renderList(item.text, item.id, item.listStatus)
-          ))
-          )
-        } 
-        { 
-          completedBtnClicked && (
-            completedList.map((item) => (
+          {activeBtnClicked &&
+            activeList.map((item) =>
               renderList(item.text, item.id, item.listStatus)
-          ))
-          )
-        } 
-        { 
-          allBtnClicked && (
-            todoList.map((item) => (
+            )}
+          {completedBtnClicked &&
+            completedList.map((item) =>
               renderList(item.text, item.id, item.listStatus)
-          ))
-          )
-        } 
-        
+            )}
+          {allBtnClicked &&
+            todoList.map((item) =>
+              renderList(item.text, item.id, item.listStatus)
+            )}
         </ul>
         <div className="bottom-navbar">
           <Paragraph text={todoList.length + " items left"} />
 
           <div className=" desktop-size">
-            <Button id="all" text={"All"}  handleClick={handleClick}/>
-            <Button id="active" text={"Active"} handleClick={handleClick} />
-            <Button
-              id="completed"
-              text={"Completed"}
-              handleClick={handleClick}
-            />
+            {renderButton("All", "all", handleClick)}
+            {renderButton("Active", "active", handleClick)}
+            {renderButton("Completed", "completed", handleClick)}
           </div>
           <Button
             id="clearCompleted"
@@ -151,9 +140,9 @@ const Content = () => {
       </div>
 
       <div className="filter-tab mobile-size">
-        <Button text={"All"} />
-        <Button id="active" text={"Active"} handleClick={handleClick} />
-        <Button id="completed" text={"Completed"} handleClick={handleClick} />
+        {renderButton("All", "all", handleClick)}
+        {renderButton("Active", "active", handleClick)}
+        {renderButton("Completed", "completed", handleClick)}
       </div>
     </main>
   );

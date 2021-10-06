@@ -1,12 +1,9 @@
-import { getByLabelText } from "@testing-library/react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
-  const [isBoxChecked, setIsBoxChecked] = useState(false);
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   const checkBoxStatus = (event) => {
-    event.target.checked ? setIsBoxChecked(true) : setIsBoxChecked(false);
     onCheckList(id, event.target.checked);
   };
 
@@ -22,29 +19,24 @@ const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
     setIsMouseOver(false);
   };
 
+  const renderCheckbox = (labelStyle, spanStyle) => {
+    return (
+      <label className={labelStyle}>
+        <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
+        <span className={spanStyle}></span>
+      </label>
+    );
+  };
+
   return (
     <li onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      {listStatus && (
-        <label className="checked-label">
-          <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
-          <span className="checked-span"></span>
-        </label>
-      )}
+      {listStatus && renderCheckbox("checked-label", "checked-span")}
+      {!listStatus && !isMouseOver && renderCheckbox("unhovered-label", "")}
+      {!listStatus &&
+        isMouseOver &&
+        renderCheckbox("hovered-label", "hovered-span")}
 
-      {!listStatus && !isMouseOver && (
-        <label className="unhovered-label">
-          <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
-          <span></span>
-        </label>
-      )}
-      {!listStatus && isMouseOver && (
-        <label className="hovered-label">
-          <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
-          <span class="hovered-span"></span>
-        </label>
-      )}
-
-      <span 
+      <span
         style={{ textDecoration: listStatus ? "line-through" : "none" }}
         className="todo-list"
       >

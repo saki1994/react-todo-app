@@ -21,8 +21,7 @@ const Content = () => {
   ]);
 
   const [completedList, setCompletedList] = useState([]);
-  const [activeList, setActiveList] = useState([]);
-  const [allList, setAllList] = useState([]);
+  const [activeList, setActiveList] = useState([]); 
 
   const [completedBtnClicked, setCompletedBtnClicked] = useState(false);
   const [activeBtnClicked, setActiveBtnClicked] = useState(false);
@@ -82,7 +81,7 @@ const Content = () => {
       setAllBtnClicked(allItem);
       setCompletedBtnClicked(false);
       setActiveBtnClicked(false);
-      
+
     } else if (id === "clearCompleted") {
       setTodoList((allItems) => {
         return allItems.filter((item) => {
@@ -92,12 +91,14 @@ const Content = () => {
     } 
   };
 
-  const renderList =  (text, id) => {
+  const renderList =  (text, id, listStatus) => {
     return <List text={text}
     key={id}
     id={id}
     onDelete={deleteList}
-    onCheckList={isCheckboxClick} />
+    onCheckList={isCheckboxClick} 
+    listStatus={listStatus}
+    />
   }
 
   return (
@@ -109,21 +110,21 @@ const Content = () => {
         { 
           activeBtnClicked && (
             activeList.map((item) => (
-            renderList(item.text, item.id)
+            renderList(item.text, item.id, item.listStatus)
           ))
           )
         } 
         { 
           completedBtnClicked && (
             completedList.map((item) => (
-              renderList(item.text, item.id)
+              renderList(item.text, item.id, item.listStatus)
           ))
           )
         } 
         { 
           allBtnClicked && (
             todoList.map((item) => (
-              renderList(item.text, item.id)
+              renderList(item.text, item.id, item.listStatus)
           ))
           )
         } 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { getByLabelText } from "@testing-library/react";
+import React, { useState, useEffect } from "react";
 
-const List = ({ text, onDelete, id, onCheckList }) => {
+const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
   const [isBoxChecked, setIsBoxChecked] = useState(false);
   const [isMouseOver, setIsMouseOver] = useState(false);
 
@@ -23,20 +24,39 @@ const List = ({ text, onDelete, id, onCheckList }) => {
 
   return (
     <li onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      <label className={isMouseOver || isBoxChecked ? "hovered-label" : "unhovered-label"}>
-        <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
-        <span></span>
-      </label>
-      <span
-        style={{ textDecoration: isBoxChecked ? "line-through" : "none" }}
+      {listStatus && (
+        <label className="checked-label">
+          <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
+          <span className="checked-span"></span>
+        </label>
+      )}
+
+      {!listStatus && !isMouseOver && (
+        <label className="unhovered-label">
+          <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
+          <span></span>
+        </label>
+      )}
+      {!listStatus && isMouseOver && (
+        <label className="hovered-label">
+          <input type="checkbox" id="checkbox" onChange={checkBoxStatus} />
+          <span class="hovered-span"></span>
+        </label>
+      )}
+
+      <span 
+        style={{ textDecoration: listStatus ? "line-through" : "none" }}
         className="todo-list"
       >
         {text}
       </span>
-      {/* Event onClick calls onDelete and pass in the id */} 
-        <button style={{visibility: isMouseOver ? "visible" : "hidden"}}onClick={handleClick}>
-          <img src="/images/icon-cross.svg" alt="delete-icon"></img>
-        </button> 
+      {/* Event onClick calls onDelete and pass in the id */}
+      <button
+        style={{ visibility: isMouseOver ? "visible" : "hidden" }}
+        onClick={handleClick}
+      >
+        <img src="/images/icon-cross.svg" alt="delete-icon"></img>
+      </button>
     </li>
   );
 };

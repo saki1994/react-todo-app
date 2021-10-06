@@ -94,11 +94,14 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 > Next: Render complete, active and all
 
 18. Render complete, Active and all - done
-> Next: Add style to rendered checked list
+> Next: Add style to rendered check list
+
+19. Add style to rendered check list - done
+> Next: Add Dark mode
+
 
  #### Remaining to do
- * Dark Mode 
- * Render complete, active and all
+ * Dark Mode  
  * Style drag and drop
 
  

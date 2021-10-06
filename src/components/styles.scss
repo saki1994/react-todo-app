@@ -79,11 +79,11 @@ body {
         margin: auto;
         padding: 20px;
         border-bottom: 1px solid grey;
-        
+
         .checkbox-icon {
-          border: 1px solid grey; 
-          border-radius: 50%; 
-          cursor: pointer; 
+          border: 1px solid grey;
+          border-radius: 50%;
+          cursor: pointer;
         }
         .todo-list {
           padding: 3px 0 0 15px;
@@ -142,66 +142,91 @@ body {
     }
   }
 }
-  
 
-.hovered-label {
-  height: 20px;
-    width: 20px;
-    background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)); 
+// for checkbox is true
+.checked-label {
+  height: 22px;
+  width: 22px;
+  background: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+}
+
+.checked-span {
+  position: absolute;
+  left: 9px;
+    top: 1px;
+  font-size: 13px;
+  transform: rotate(20deg);
+}
+
+.checked-span::after {
+    color: white;
+    content: "✔";
+    position: absolute;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
-    position: relative;
-    left: 0;
-} 
+}
+
+span::before {
+  content: "";
+  opacity: 0;
+}
+
+
+/////////////  unhovered label
 
 .unhovered-label {
   border: 1px solid grey;
   height: 20px;
-    width: 20px; 
-    border-radius: 50%;
-    position: relative;
-    left: 0;
+  width: 20px;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
 }
 
-  label span {
+
+
+///// hovered label & unchecked input
+
+.hovered-label {
+  height: 22px;
+  width: 22px;
+  background: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+}
+
+.hovered-span {
+  content: "";
   position: absolute;
-    left: 8px;
-    font-size: 13px;
-    transform: rotate(
-20deg);
+  height: 19px;
+  width: 19px;
+  background: white;
+  left: 1px;
+  top: 1px;
+  border-radius: 50%;
+  border: none;
 }
-
-  label span::before {
-  content:"";
-  position:absolute;
-  height:16px;
-  width: 17px;
-  background:white;
-  left: -3px;
-  top: 1px; 
-  border-radius: 50%; 
-}
+ 
 
 label input {
   opacity: 0;
 }
- 
 
-label input[type="checkbox"]:checked +  span::after{ 
-  color: white; 
-    content: "✔";
-    position: absolute; 
-    height: 100%;
-    width: 100%; 
-    border-radius: 50%;
-}
-
-label input[type="checkbox"]:checked +  span::before {
-  content:"";
-  opacity:0;
-}
- 
-.mobile-size { 
-  display: none; 
+.mobile-size {
+  display: none;
   visibility: hidden;
   position: absolute;
 }
@@ -219,13 +244,12 @@ label input[type="checkbox"]:checked +  span::before {
     height: 250px;
   }
   .desktop-size {
-    visibility: hidden; 
+    visibility: hidden;
     display: none;
   }
-  .mobile-size { 
-    visibility: visible; 
+  .mobile-size {
+    visibility: visible;
     display: block;
     position: static;
   }
 }
- 

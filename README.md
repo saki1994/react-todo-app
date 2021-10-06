@@ -91,8 +91,10 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 > Next: Adjust checkbox style
 
 17. Adjust checkbox - done
-> Render complete, active and all
+> Next: Render complete, active and all
 
+18. Render complete, Active and all - done
+> Next: Add style to rendered checked list
 
  #### Remaining to do
  * Dark Mode 

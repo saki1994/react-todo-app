@@ -16,12 +16,17 @@ const Content = () => {
     {
       text: "Jog around the park 3x",
       id: 1,
-      listStatus: false,
+      listStatus: true,
     },
   ]);
 
   const [completedList, setCompletedList] = useState([]);
   const [activeList, setActiveList] = useState([]);
+  const [allList, setAllList] = useState([]);
+
+  const [completedBtnClicked, setCompletedBtnClicked] = useState(false);
+  const [activeBtnClicked, setActiveBtnClicked] = useState(false);
+  const [allBtnClicked, setAllBtnClicked] =  useState(true);
 
   // function to add a list.
   const addTodoList = (inputList) => {
@@ -59,18 +64,41 @@ const Content = () => {
       return item.listStatus === false;
     });
 
+    const allItem = [...todoList];
+ 
     if (id === "completed") {
-      setCompletedList(getAllTrue);
+      setCompletedList(getAllTrue);  
+      setCompletedBtnClicked(true);
+      setActiveBtnClicked(false);
+      setAllBtnClicked(false);
+       
     } else if (id === "active") {
       setActiveList(getAllFalse);
+      setCompletedBtnClicked(false);
+      setActiveBtnClicked(true);
+      setAllBtnClicked(false);
+       
+    }  else if (id === "all") {
+      setAllBtnClicked(allItem);
+      setCompletedBtnClicked(false);
+      setActiveBtnClicked(false);
+      
     } else if (id === "clearCompleted") {
       setTodoList((allItems) => {
         return allItems.filter((item) => {
           return item.listStatus !== true;
         });
       });
-    }
+    } 
   };
+
+  const renderList =  (text, id) => {
+    return <List text={text}
+    key={id}
+    id={id}
+    onDelete={deleteList}
+    onCheckList={isCheckboxClick} />
+  }
 
   return (
     <main> 
@@ -78,21 +106,34 @@ const Content = () => {
 
       <div className="todo-box">
         <ul>
-          {todoList.map((item) => (
-            <List
-              text={item.text}
-              key={item.id}
-              id={item.id}
-              onDelete={deleteList}
-              onCheckList={isCheckboxClick}
-            />
-          ))}
+        { 
+          activeBtnClicked && (
+            activeList.map((item) => (
+            renderList(item.text, item.id)
+          ))
+          )
+        } 
+        { 
+          completedBtnClicked && (
+            completedList.map((item) => (
+              renderList(item.text, item.id)
+          ))
+          )
+        } 
+        { 
+          allBtnClicked && (
+            todoList.map((item) => (
+              renderList(item.text, item.id)
+          ))
+          )
+        } 
+        
         </ul>
         <div className="bottom-navbar">
           <Paragraph text={todoList.length + " items left"} />
 
           <div className=" desktop-size">
-            <Button id="all" text={"All"} />
+            <Button id="all" text={"All"}  handleClick={handleClick}/>
             <Button id="active" text={"Active"} handleClick={handleClick} />
             <Button
               id="completed"

@@ -11,7 +11,6 @@ const List = ({ text, onDelete, id, onCheckList }) => {
 
   const handleClick = () => {
     onDelete(id);
-    console.log("x")
   };
 
   const handleMouseOver = () => {

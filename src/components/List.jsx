@@ -11,6 +11,7 @@ const List = ({ text, onDelete, id, onCheckList }) => {
 
   const handleClick = () => {
     onDelete(id);
+    console.log("x")
   };
 
   const handleMouseOver = () => {
@@ -33,12 +34,10 @@ const List = ({ text, onDelete, id, onCheckList }) => {
       >
         {text}
       </span>
-      {/* Event onClick calls onDelete and pass in the id */}
-      {isMouseOver && (
-        <button onClick={handleClick}>
+      {/* Event onClick calls onDelete and pass in the id */} 
+        <button style={{visibility: isMouseOver ? "visible" : "hidden"}}onClick={handleClick}>
           <img src="/images/icon-cross.svg" alt="delete-icon"></img>
-        </button>
-      )}
+        </button> 
     </li>
   );
 };

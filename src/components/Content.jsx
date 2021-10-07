@@ -15,9 +15,10 @@ const Content = () => {
     {
       text: "Jog around the park 3x",
       id: 1,
-      listStatus: true,
+      listStatus: false,
     },
   ]);
+  const remainingList = todoList.filter(item => item.listStatus === false).length; 
 
   const [completedList, setCompletedList] = useState([]);
   const [activeList, setActiveList] = useState([]);
@@ -100,49 +101,42 @@ const Content = () => {
     );
   };
 
-  const renderButton = (text, id, clickEvent) => {
-    return <Button id={id} text={text} handleClick={clickEvent} />;
+  const renderButton = (text, id, clickEvent, btnStatus) => {
+    return <Button id={id} text={text} handleClick={clickEvent} btnStatus={btnStatus}/>;
   };
 
+  const renderMap = (arrayName) => {
+    return arrayName.map((item) =>
+      renderList(item.text, item.id, item.listStatus)
+    );
+  };
+  
   return (
     <main>
       <AddList addTodoList={addTodoList} />
 
       <div className="todo-box">
         <ul>
-          {activeBtnClicked &&
-            activeList.map((item) =>
-              renderList(item.text, item.id, item.listStatus)
-            )}
-          {completedBtnClicked &&
-            completedList.map((item) =>
-              renderList(item.text, item.id, item.listStatus)
-            )}
-          {allBtnClicked &&
-            todoList.map((item) =>
-              renderList(item.text, item.id, item.listStatus)
-            )}
+          {activeBtnClicked && renderMap(activeList)}
+          {completedBtnClicked && renderMap(completedList)}
+          {allBtnClicked && renderMap(todoList)}
         </ul>
         <div className="bottom-navbar">
-          <Paragraph text={todoList.length + " items left"} />
+          <Paragraph text={remainingList + " items left"} />
 
-          <div className=" desktop-size">
-            {renderButton("All", "all", handleClick)}
-            {renderButton("Active", "active", handleClick)}
-            {renderButton("Completed", "completed", handleClick)}
+          <div className="desktop-size">
+            {renderButton("All", "all", handleClick, allBtnClicked)}
+            {renderButton("Active", "active", handleClick, activeBtnClicked)}
+            {renderButton("Completed", "completed", handleClick, completedBtnClicked)}
           </div>
-          <Button
-            id="clearCompleted"
-            text={"Clear Completed"}
-            handleClick={handleClick}
-          />
+          {renderButton("Clear Completed", "clearCompleted", handleClick)} 
         </div>
       </div>
 
       <div className="filter-tab mobile-size">
-        {renderButton("All", "all", handleClick)}
-        {renderButton("Active", "active", handleClick)}
-        {renderButton("Completed", "completed", handleClick)}
+        {renderButton("All", "all", handleClick, allBtnClicked)}
+        {renderButton("Active", "active", handleClick, activeBtnClicked)}
+        {renderButton("Completed", "completed", handleClick, completedBtnClicked)}
       </div>
     </main>
   );

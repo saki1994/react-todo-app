@@ -36,10 +36,7 @@ const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
         isMouseOver &&
         renderCheckbox("hovered-label", "hovered-span")}
 
-      <span
-        style={{ textDecoration: listStatus ? "line-through" : "none" }}
-        className="todo-list"
-      >
+      <span className={listStatus ? "todo-list-inactive" : "todo-list-active"}>
         {text}
       </span>
       {/* Event onClick calls onDelete and pass in the id */}

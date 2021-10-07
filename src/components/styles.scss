@@ -1,244 +1,287 @@
-* {
-  font-family: "Josefin Sans", sans-serif;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+// rules
+// Positioning, Box model, Typography, Visuals, Misc
+$font-family: "Josefin Sans", sans-serif;
+
+//Positioning
+
+$absolute: absolute;
+$relative: relative;
+$flex: flex;
+
+//Typography
+$btn-blue: hsl(220, 98%, 61%);
+$text-white: #fff;
+$very-light-grayish-blue: hsl(236, 33%, 92%);
+$dark-grayish-blue: hsl(236, 9%, 61%);
+$gradient-bg: linear-gradient(
+  to bottom right,
+  hsl(192, 100%, 67%),
+  hsl(280, 87%, 65%)
+);
+
+@mixin font-size($size) {
+  font-size: $size;
 }
 
-.background {
-  position: absolute;
-  z-index: -1;
+//Box model
+$width: 100%;
+$gap: 35px;
+
+@mixin border-raduis($var) {
+  border-radius: $var;
+}
+@mixin element-size($w, $h) {
+  height: $h;
+  width: $w;
+}
+
+@mixin padding($args...) {
+  padding: $args;
+}
+
+@mixin margin($args...) {
+  margin: $args;
+}
+
+@mixin border($args...) {
+  border: $args;
+}
+
+//Misc
+$pointer: pointer;
+
+* {
+  font-family: $font-family;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  @include margin(0);
+  @include padding(0);
+
+  .background {
+    z-index: -1;
+    position: $absolute;
+  }
 }
 
 .container {
-  width: 40%;
-  margin: auto;
-  display: flex;
+  display: $flex;
   flex-direction: column;
-  padding: 5%;
+  width: calc(#{$width} - 60%);
+  @include margin(auto);
+  @include padding(5%);
 
   header {
-    display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
+    display: $flex;
+    @include margin(2rem 0 1rem);
 
     h1 {
-      margin: 0;
       letter-spacing: 10px;
-      color: #fff;
-      font-size: 2.5em;
+      color: $text-white;
+      @include margin(0);
+      @include font-size(2.5em);
     }
     img {
-      width: 25px;
-      height: 25px;
+      @include element-size(25px, 25px);
     }
   }
 
   main {
-    display: flex;
     flex-direction: column;
-    gap: 35px;
+    display: $flex;
+    gap: $gap;
 
     & > * {
-      border-radius: 5px;
+      @include border-raduis(10px);
     }
 
     form {
-      background: #fff;
-      padding: 6px 0 5px 20px;
+      background: $text-white;
+      @include padding(6px 0 5px 20px);
 
       .add-task {
-        padding: 15px;
-        width: 60%;
-        border: none;
-        font-size: 15px;
         outline: none;
+        width: calc(#{$width} - 40%);
+        @include border(none);
+        @include font-size(15px);
+        @include padding(15px);
       }
     }
 
     .todo-box,
     .filter-tab {
-      border-radius: 5px;
       background: rgba(255, 255, 255, 1);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4.9px);
       -webkit-backdrop-filter: blur(4.9px);
-      border: 1px solid rgba(255, 255, 255, 0.62);
+      @include border-raduis(10px);
+      @include border(1px solid rgba(255, 255, 255, 0.62));
     }
     ul {
-      padding: 0;
       list-style-type: none;
-      margin: 0;
+      @include margin(0);
+      @include padding(0);
 
       li {
-        display: flex;
-        margin: auto;
-        padding: 20px;
-        border-bottom: 1px solid grey;
+        display: $flex;
+        border-bottom: 1px solid $very-light-grayish-blue; 
+        @include margin(auto);
+        @include padding(20px);
 
-        .checkbox-icon {
-          border: 1px solid grey;
-          border-radius: 50%;
-          cursor: pointer;
+        label input {
+          opacity: 0;
         }
-        .todo-list {
-          padding: 3px 0 0 15px;
+         
+        .todo-list-active { 
+          text-decoration: none;
+          @include padding(3px 0 0 15px); 
+        }
+
+        .todo-list-inactive {
+          text-decoration: line-through;
+          color: $dark-grayish-blue;
+          @include padding(3px 0 0 15px); 
         }
 
         button {
           margin-left: auto;
           background: none;
-          border: none;
+          @include border(none);
 
           img {
-            width: 80%;
+            @include element-size(80%, 80%);
           }
         }
       }
     }
 
     .bottom-navbar {
-      display: flex;
-      padding: 15px 20px;
-      font-size: 12px;
-      gap: 15px;
       justify-content: space-between;
+      display: $flex; 
+      gap: cal(#{$gap} - 20px); 
+      color: $dark-grayish-blue; 
+      @include font-size(12px);
+      @include padding(15px 20px);
 
       .navbar-btn {
-        border: none;
         background: none;
-        cursor: pointer;
+        cursor: $pointer;
+        @include border(none);  
 
         &:hover {
-          color: hsl(220, 98%, 61%);
+          color: black;
         }
       }
 
       & > * {
-        margin: 0;
+        @include margin(0); 
       }
     }
 
-    .filter-tab {
-      padding: 20px;
-      display: flex;
+    //for btn in bottom navbar in mobile size
+    .filter-tab { 
+      display: $flex;
       justify-content: center;
-      gap: 20px;
+      gap: cal(#{$gap} - 15px);
+      @include padding(20px); 
 
       & button {
-        border: none;
         background: none;
-        cursor: pointer;
-        font-size: 18px;
+        color: $dark-grayish-blue; 
+        cursor: $pointer;
+        @include border(none);
+        @include font-size(18px);
 
         &:hover {
-          color: hsl(220, 98%, 61%);
+          color: $btn-blue;
         }
       }
     }
+  } 
+}
+
+.mobile-size { 
+  display: none;
+  visibility: hidden;
+}
+
+/////  Checkbox styling ///////
+
+// for when checkbox is true
+.checked-label {
+  left: 0;
+  cursor: $pointer;
+  background: $gradient-bg;
+  position: $relative;
+  @include element-size(22px, 22px);
+  @include border-raduis(50%);
+
+  .checked-span {
+    position: $absolute;
+    left: 9px;
+    top: 1px;
+    @include font-size(13px);
+    transform: rotate(20deg);
+  }
+
+  .checked-span::after {
+    content: "✔";
+    color: $text-white;
+    position: $absolute;
+    @include element-size(100%, 100%);
+    @include border-raduis(50%);
+  }
+
+  span::before {
+    content: "";
+    opacity: 0;
   }
 }
-
-// for checkbox is true
-.checked-label {
-  height: 22px;
-  width: 22px;
-  background: linear-gradient(
-    to bottom right,
-    hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%)
-  );
-  border-radius: 50%;
-  position: relative;
-  left: 0;
-}
-
-.checked-span {
-  position: absolute;
-  left: 9px;
-    top: 1px;
-  font-size: 13px;
-  transform: rotate(20deg);
-}
-
-.checked-span::after {
-    color: white;
-    content: "✔";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-}
-
-span::before {
-  content: "";
-  opacity: 0;
-}
-
 
 /////////////  unhovered label
 
 .unhovered-label {
-  border: 1px solid grey;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  position: relative;
+  @include border(1px solid grey);
+  @include element-size(20px, 20px);
+  @include border-raduis(50%);
+  position: $relative;
   left: 0;
 }
-
-
 
 ///// hovered label & unchecked input
 
 .hovered-label {
-  height: 22px;
-  width: 22px;
-  background: linear-gradient(
-    to bottom right,
-    hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%)
-  );
-  border-radius: 50%;
-  position: relative;
+  @include element-size(22px, 22px);
+  background: $gradient-bg;
+  @include border-raduis(50%);
+  position: $relative;
   left: 0;
+  cursor: $pointer;
 }
 
 .hovered-span {
   content: "";
-  position: absolute;
-  height: 19px;
-  width: 19px;
-  background: white;
+  position: $absolute;
+  @include element-size(19px, 19px);
+  background: $text-white;
   left: 1px;
   top: 1px;
-  border-radius: 50%;
-  border: none;
-}
- 
-
-label input {
-  opacity: 0;
+  @include border-raduis(50%);
+  @include border(none);
 }
 
-.mobile-size {
-  display: none;
-  visibility: hidden;
-  position: absolute;
-}
 @media only screen and (max-width: 992px) {
   .container {
-    width: 70%;
+    width: calc(#{$width} - 30%);
   }
 }
 
 @media only screen and (max-width: 768px) {
   .container {
-    width: 80%;
+    width: calc(#{$width} - 20%);
   }
   .background {
     height: 250px;

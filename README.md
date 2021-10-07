@@ -102,10 +102,13 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 20. reate function to render btn and li - done
 > Next: Clean up SASS file
 
+21. Clean up SASS file - done
+> Next: Dark Mode apply
 
  #### Remaining to do
  * Dark Mode  
  * Style drag and drop
-
+ * Deploy to Netlify / Heroku
+ * Bonus: Add Database
  
  

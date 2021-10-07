@@ -17,6 +17,7 @@ body .background {
 }
 
 .container {
+  color: #484b6a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,14 +145,19 @@ body .background {
   padding: 15px 20px;
 }
 
-.container main .bottom-navbar .navbar-btn {
+.container main .bottom-navbar button {
   background: none;
   cursor: pointer;
+  color: #9394a5;
   border: none;
 }
 
-.container main .bottom-navbar .navbar-btn:hover {
-  color: black;
+.container main .bottom-navbar button:hover {
+  color: #484b6a;
+}
+
+.container main .bottom-navbar button:focus {
+  color: #3a7bfd;
 }
 
 .container main .bottom-navbar > * {
@@ -165,7 +171,7 @@ body .background {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: cal(35px - 15px);
+  gap: cal(35px - 10px);
   padding: 20px;
 }
 
@@ -178,6 +184,10 @@ body .background {
 }
 
 .container main .filter-tab button:hover {
+  color: #484b6a;
+}
+
+.container main .filter-tab button:focus {
   color: #3a7bfd;
 }
 

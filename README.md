@@ -103,7 +103,10 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 > Next: Clean up SASS file
 
 21. Clean up SASS file - done
-> Next: Dark Mode apply
+> Next: Render sun and moon icon
+
+22. Render sun and moon icon - done
+> Next: Change bg img for dark mode
 
  #### Remaining to do
  * Dark Mode  

@@ -101,8 +101,8 @@ const Content = () => {
     );
   };
 
-  const renderButton = (text, id, clickEvent, btnStatus) => {
-    return <Button id={id} text={text} handleClick={clickEvent} btnStatus={btnStatus}/>;
+  const renderButton = (text, id, clickEvent) => {
+    return <Button id={id} text={text} handleClick={clickEvent}/>;
   };
 
   const renderMap = (arrayName) => {
@@ -125,18 +125,18 @@ const Content = () => {
           <Paragraph text={remainingList + " items left"} />
 
           <div className="desktop-size">
-            {renderButton("All", "all", handleClick, allBtnClicked)}
-            {renderButton("Active", "active", handleClick, activeBtnClicked)}
-            {renderButton("Completed", "completed", handleClick, completedBtnClicked)}
+            {renderButton("All", "all", handleClick)}
+            {renderButton("Active", "active", handleClick)}
+            {renderButton("Completed", "completed", handleClick)}
           </div>
           {renderButton("Clear Completed", "clearCompleted", handleClick)} 
         </div>
       </div>
 
       <div className="filter-tab mobile-size">
-        {renderButton("All", "all", handleClick, allBtnClicked)}
-        {renderButton("Active", "active", handleClick, activeBtnClicked)}
-        {renderButton("Completed", "completed", handleClick, completedBtnClicked)}
+        {renderButton("All", "all", handleClick)}
+        {renderButton("Active", "active", handleClick)}
+        {renderButton("Completed", "completed", handleClick)}
       </div>
     </main>
   );

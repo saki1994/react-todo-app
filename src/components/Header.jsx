@@ -1,12 +1,18 @@
-import React from 'react';
+import React from "react";
 
 const Header = () => {
-    return (
-        <header className="header">
-            <h1>TODO</h1> 
-            <img  src="images/icon-sun.svg" alt="sun-icon"/>
-        </header>
-    )
-}
+  const day = new Date();
+  const hour = day.getHours();
 
-export default Header
+  console.log(hour);
+  return (
+    <header className="header">
+      <h1>TODO</h1>
+      <img
+        src={hour <= 18 ? "images/icon-sun.svg" : "images/icon-moon.svg"}
+        alt={hour <= 18 ? "sun-icon" : "moon-icon"}
+      />
+    </header>
+  );
+};
+export default Header;

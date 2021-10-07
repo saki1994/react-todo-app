@@ -67,17 +67,33 @@ body .background {
   border-radius: 10px;
 }
 
-.container main form {
-  background: #fff;
+.container main .form-light, .container main .form-dark {
   padding: 6px 0 5px 20px;
 }
 
-.container main form .add-task {
+.container main .form-light .add-task, .container main .form-dark .add-task {
   outline: none;
   width: calc(100% - 40%);
   border: none;
   font-size: 15px;
   padding: 15px;
+}
+
+.container main .form-light {
+  background: #fff;
+}
+
+.container main .form-light .add-task {
+  color: black;
+}
+
+.container main .form-dark {
+  background: black;
+}
+
+.container main .form-dark .add-task {
+  background: black;
+  color: white;
 }
 
 .container main .todo-box,

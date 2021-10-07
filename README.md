@@ -108,6 +108,12 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 22. Render sun and moon icon - done
 > Next: Change bg img for dark mode
 
+23. Change bg img for dark mode - done
+> Next: Change body color for dark mode
+
+24. Change body color for dark mode - done
+> Next: Change text color for dark mode
+
  #### Remaining to do
  * Dark Mode  
  * Style drag and drop

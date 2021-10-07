@@ -1,21 +1,41 @@
-import React from 'react';
-import Header from './Header';
-import Content from './Content';
-import Footer from './Footer';
-import './styles.scss'; 
-
+import React, {useState} from "react";
+import Header from "./Header";
+import Content from "./Content";
+import Footer from "./Footer";
+import "./styles.scss"; 
 
 const App = () => {
-    return (
-        <div>
-        <img className="background"src="/images/bg-desktop-light.jpg" alt="background-light"/> 
-            <div className="container" >
-            <Header /> 
-            <Content />
-            <Footer />
-            </div>
-        </div>
-    )
-}
+   
+  const [screenMode, setScreenMode] = useState("light");
 
-export default App
+  const clickEvent = (param) => {
+    if (param === "light") {
+      setScreenMode("dark")
+    } else {
+      setScreenMode("light")
+    }
+  }  
+  
+  //sets the body background color when theme is toggled 
+  const mode = screenMode === "light" ? "white" : "black";
+  document.body.style.backgroundColor = mode;
+
+  return (
+    <div>
+      <img
+        className="background"
+        src={`/images/bg-desktop-${screenMode}.jpg`} 
+        alt="background-light"
+      />
+      <div className="container">
+        <Header screenMode={screenMode} event={clickEvent}/>
+        <Content screenMode={screenMode}/>
+        <Footer />
+      </div>
+       
+    </div>
+  ); 
+};
+
+export default App;
+

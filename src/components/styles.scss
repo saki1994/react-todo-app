@@ -1,55 +1,5 @@
-// rules
-// Positioning, Box model, Typography, Visuals, Misc
-$font-family: "Josefin Sans", sans-serif;
+@import 'variables';
 
-//Positioning
-
-$absolute: absolute;
-$relative: relative;
-$flex: flex;
-
-//Typography
-$btn-blue: hsl(220, 98%, 61%);
-$text-white: #fff;
-$very-dark-grayish-blue: hsl(235, 19%, 35%);
-$very-light-grayish-blue: hsl(236, 33%, 92%);
-$dark-grayish-blue: hsl(236, 9%, 61%);
-$gradient-bg: linear-gradient(
-  to bottom right,
-  hsl(192, 100%, 67%),
-  hsl(280, 87%, 65%)
-);
-
-@mixin font-size($size) {
-  font-size: $size;
-}
-
-//Box model
-$width: 100%;
-$gap: 35px;
-
-@mixin border-raduis($var) {
-  border-radius: $var;
-}
-@mixin element-size($w, $h) {
-  height: $h;
-  width: $w;
-}
-
-@mixin padding($args...) {
-  padding: $args;
-}
-
-@mixin margin($args...) {
-  margin: $args;
-}
-
-@mixin border($args...) {
-  border: $args;
-}
-
-//Misc
-$pointer: pointer;
 
 * {
   font-family: $font-family;
@@ -99,9 +49,8 @@ body {
     & > * {
       @include border-raduis(10px);
     }
-
-    form {
-      background: $text-white;
+    
+    .form-light, .form-dark {
       @include padding(6px 0 5px 20px);
 
       .add-task {
@@ -110,6 +59,22 @@ body {
         @include border(none);
         @include font-size(15px);
         @include padding(15px);
+      }
+    } 
+    .form-light {
+      background: $text-white; 
+
+      .add-task {
+        color: black;
+      }
+    }
+
+    .form-dark {
+      background: black; 
+
+      .add-task {
+        background: black;
+        color: white;
       }
     }
 

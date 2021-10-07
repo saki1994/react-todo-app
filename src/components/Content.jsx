@@ -4,7 +4,7 @@ import List from "./List";
 import Paragraph from "./Paragraph";
 import Button from "./Button";
 
-const Content = () => {
+const Content = ({screenMode}) => {
   //An array of list user input
   const [todoList, setTodoList] = useState([
     {
@@ -113,7 +113,7 @@ const Content = () => {
   
   return (
     <main>
-      <AddList addTodoList={addTodoList} />
+      <AddList screenMode={screenMode} addTodoList={addTodoList} />
 
       <div className="todo-box">
         <ul>

@@ -114,6 +114,9 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 24. Change body color for dark mode - done
 > Next: Change text color for dark mode
 
+25. Change text color for dark mode - done
+> Next: Btn & borders in dark mode
+
  #### Remaining to do
  * Dark Mode  
  * Style drag and drop

@@ -32,7 +32,7 @@ body {
 
     h1 {
       letter-spacing: 10px;
-      color: $text-white;
+      color: $white;
       @include margin(0);
       @include font-size(2.5em);
     }
@@ -62,21 +62,26 @@ body {
       }
     } 
     .form-light {
-      background: $text-white; 
+      background: $white; 
 
       .add-task {
-        color: black;
+        color: $very-dark-grayish-blue;
       }
     }
 
-    .form-dark {
-      background: black; 
+    .form-dark { 
+      background: $very-dark-grayish-blue;  
 
-      .add-task {
-        background: black;
-        color: white;
+      .add-task { 
+        background: $very-dark-grayish-blue; 
+        color: $very-light-grayish-blue;
+
+        &::placeholder {
+          color: $very-light-grayish-blue;
+        }
       }
     }
+     
 
     .todo-box,
     .filter-tab {
@@ -87,6 +92,18 @@ body {
       @include border-raduis(10px);
       @include border(1px solid rgba(255, 255, 255, 0.62));
     }
+
+    .light-mode {
+      color: $very-dark-grayish-blue;
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .dark-mode {
+      color: $very-light-grayish-blue;
+      background: $very-dark-grayish-blue;
+      border: none;
+    }
+
     ul {
       list-style-type: none;
       @include margin(0);
@@ -206,7 +223,7 @@ body {
 
   .checked-span::after {
     content: "✔";
-    color: $text-white;
+    color: $white;
     position: $absolute;
     @include element-size(100%, 100%);
     @include border-raduis(50%);
@@ -243,7 +260,7 @@ body {
   content: "";
   position: $absolute;
   @include element-size(19px, 19px);
-  background: $text-white;
+  background: $white;
   left: 1px;
   top: 1px;
   @include border-raduis(50%);

@@ -97,6 +97,7 @@ const Content = ({screenMode}) => {
         onDelete={deleteList}
         onCheckList={isCheckboxClick}
         listStatus={listStatus}
+        screenMode={screenMode}
       />
     );
   };
@@ -115,7 +116,7 @@ const Content = ({screenMode}) => {
     <main>
       <AddList screenMode={screenMode} addTodoList={addTodoList} />
 
-      <div className="todo-box">
+      <div className={screenMode === "light" ? "todo-box light-mode" : "todo-box dark-mode"} >
         <ul>
           {activeBtnClicked && renderMap(activeList)}
           {completedBtnClicked && renderMap(completedList)}

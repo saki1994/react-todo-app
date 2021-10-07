@@ -43,7 +43,7 @@ const AddList = ({ addTodoList, screenMode }) => {
 
   return (
     <form className={screenMode === "light" ? "form-light" : "form-dark"} action="#" onKeyPress={handleClick}>
-      <FontAwesomeIcon icon={faCircle} color={screenMode === "light" ? "white" : "black"} style={{border: "1px solid grey", borderRadius: "50%"}}/>
+      <FontAwesomeIcon icon={faCircle} color={screenMode === "light" ? "white" : "hsl(237, 14%, 26%)"} style={{border: "1px solid grey", borderRadius: "50%"}}/>
 
       <input
         className="add-task"

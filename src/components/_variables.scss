@@ -8,7 +8,7 @@ $flex: flex;
 //Typography
 $font-family: "Josefin Sans", sans-serif;
 $btn-blue: hsl(220, 98%, 61%);
-$text-white: #fff;
+$white: #fff;
 $very-dark-grayish-blue: hsl(235, 19%, 35%);
 $very-light-grayish-blue: hsl(236, 33%, 92%);
 $dark-grayish-blue: hsl(236, 9%, 61%);
@@ -17,6 +17,9 @@ $gradient-bg: linear-gradient(
   hsl(192, 100%, 67%),
   hsl(280, 87%, 65%)
 );
+
+//Typography - dark mode
+$very-dark-grayish-blue: hsl(237, 14%, 26%);
 
 @mixin font-size($size) {
   font-size: $size;

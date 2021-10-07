@@ -17,7 +17,7 @@ body .background {
 }
 
 .container {
-  color: #484b6a;
+  color: #393a4c;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,16 +84,32 @@ body .background {
 }
 
 .container main .form-light .add-task {
-  color: black;
+  color: #393a4c;
 }
 
 .container main .form-dark {
-  background: black;
+  background: #393a4c;
 }
 
 .container main .form-dark .add-task {
-  background: black;
-  color: white;
+  background: #393a4c;
+  color: #e4e5f1;
+}
+
+.container main .form-dark .add-task::-webkit-input-placeholder {
+  color: #e4e5f1;
+}
+
+.container main .form-dark .add-task:-ms-input-placeholder {
+  color: #e4e5f1;
+}
+
+.container main .form-dark .add-task::-ms-input-placeholder {
+  color: #e4e5f1;
+}
+
+.container main .form-dark .add-task::placeholder {
+  color: #e4e5f1;
 }
 
 .container main .todo-box,
@@ -105,6 +121,17 @@ body .background {
   -webkit-backdrop-filter: blur(4.9px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.62);
+}
+
+.container main .light-mode {
+  color: #393a4c;
+  background: white;
+}
+
+.container main .dark-mode {
+  color: #e4e5f1;
+  background: #393a4c;
+  border: none;
 }
 
 .container main ul {
@@ -169,7 +196,7 @@ body .background {
 }
 
 .container main .bottom-navbar button:hover {
-  color: #484b6a;
+  color: #393a4c;
 }
 
 .container main .bottom-navbar button:focus {
@@ -200,7 +227,7 @@ body .background {
 }
 
 .container main .filter-tab button:hover {
-  color: #484b6a;
+  color: #393a4c;
 }
 
 .container main .filter-tab button:focus {

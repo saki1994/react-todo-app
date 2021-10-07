@@ -17,7 +17,7 @@ const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
 
   const handleMouseOut = () => {
     setIsMouseOver(false);
-  };
+  }; 
 
   const renderCheckbox = (labelStyle, spanStyle) => {
     return (

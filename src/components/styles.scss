@@ -1,5 +1,4 @@
-@import 'variables';
-
+@import "variables";
 
 * {
   font-family: $font-family;
@@ -41,16 +40,17 @@ body {
     }
   }
 
-  main { 
+  main {
     flex-direction: column;
     display: $flex;
     gap: $gap;
 
     & > * {
-      @include border-raduis(10px);
+      @include border-raduis(5px);
     }
-    
-    .form-light, .form-dark {
+
+    .form-light,
+    .form-dark {
       @include padding(6px 0 5px 20px);
 
       .add-task {
@@ -60,20 +60,20 @@ body {
         @include font-size(15px);
         @include padding(15px);
       }
-    } 
+    }
     .form-light {
-      background: $white; 
+      background: $white;
 
       .add-task {
         color: $very-dark-grayish-blue;
       }
     }
 
-    .form-dark { 
-      background: $very-dark-grayish-blue;  
+    .form-dark {
+      background: $very-dark-grayish-blue;
 
-      .add-task { 
-        background: $very-dark-grayish-blue; 
+      .add-task {
+        background: $very-dark-grayish-blue;
         color: $very-light-grayish-blue;
 
         &::placeholder {
@@ -81,7 +81,6 @@ body {
         }
       }
     }
-     
 
     .todo-box,
     .filter-tab {
@@ -89,19 +88,27 @@ body {
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4.9px);
       -webkit-backdrop-filter: blur(4.9px);
-      @include border-raduis(10px);
+      @include border-raduis(5px);
       @include border(1px solid rgba(255, 255, 255, 0.62));
     }
 
     .light-mode {
       color: $very-dark-grayish-blue;
       background: rgba(255, 255, 255, 1);
+
+      li {
+        border-bottom: 1px solid $very-light-grayish-blue;
+      }
     }
 
     .dark-mode {
       color: $very-light-grayish-blue;
       background: $very-dark-grayish-blue;
       border: none;
+
+      li {
+        border-bottom: 1px solid $very-light-graying-blue;
+      }
     }
 
     ul {
@@ -111,23 +118,22 @@ body {
 
       li {
         display: $flex;
-        border-bottom: 1px solid $very-light-grayish-blue; 
         @include margin(auto);
         @include padding(20px);
 
         label input {
           opacity: 0;
         }
-         
-        .todo-list-active { 
+
+        .todo-list-active {
           text-decoration: none;
-          @include padding(3px 0 0 15px); 
+          @include padding(3px 0 0 15px);
         }
 
         .todo-list-inactive {
           text-decoration: line-through;
           color: $dark-grayish-blue;
-          @include padding(3px 0 0 15px); 
+          @include padding(3px 0 0 15px);
         }
 
         button {
@@ -144,17 +150,17 @@ body {
 
     .bottom-navbar {
       justify-content: space-between;
-      display: $flex; 
-      gap: cal(#{$gap} - 20px); 
-      color: $dark-grayish-blue; 
+      display: $flex;
+      gap: cal(#{$gap} - 20px);
+      color: $dark-grayish-blue;
       @include font-size(12px);
       @include padding(15px 20px);
 
       button {
         background: none;
-        cursor: $pointer; 
+        cursor: $pointer;
         color: $dark-grayish-blue;
-        @include border(none);  
+        @include border(none);
 
         &:hover {
           color: $very-dark-grayish-blue;
@@ -163,24 +169,26 @@ body {
         &:focus {
           color: $btn-blue;
         }
- 
       }
 
       & > * {
-        @include margin(0); 
-      } 
+        @include margin(0);
+      }
+      .btn-dark-mode:hover {
+        color: $very-light-grayish-blue;
+      }
     }
 
     //for btn in bottom navbar in mobile size
-    .filter-tab { 
+    .filter-tab {
       display: $flex;
       justify-content: center;
       gap: cal(#{$gap} - 10px);
-      @include padding(20px); 
+      @include padding(20px);
 
       & button {
         background: none;
-        color: $dark-grayish-blue; 
+        color: $dark-grayish-blue;
         cursor: $pointer;
         @include border(none);
         @include font-size(18px);
@@ -194,10 +202,10 @@ body {
         }
       }
     }
-  } 
+  }
 }
 
-.mobile-size { 
+.mobile-size {
   display: none;
   visibility: hidden;
 }

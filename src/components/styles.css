@@ -64,14 +64,16 @@ body .background {
 }
 
 .container main > * {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
-.container main .form-light, .container main .form-dark {
+.container main .form-light,
+.container main .form-dark {
   padding: 6px 0 5px 20px;
 }
 
-.container main .form-light .add-task, .container main .form-dark .add-task {
+.container main .form-light .add-task,
+.container main .form-dark .add-task {
   outline: none;
   width: calc(100% - 40%);
   border: none;
@@ -119,7 +121,7 @@ body .background {
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.62);
 }
 
@@ -128,10 +130,18 @@ body .background {
   background: white;
 }
 
+.container main .light-mode li {
+  border-bottom: 1px solid #e4e5f1;
+}
+
 .container main .dark-mode {
   color: #e4e5f1;
   background: #393a4c;
   border: none;
+}
+
+.container main .dark-mode li {
+  border-bottom: 1px solid #4d5066;
 }
 
 .container main ul {
@@ -144,7 +154,6 @@ body .background {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid #e4e5f1;
   margin: auto;
   padding: 20px;
 }
@@ -205,6 +214,10 @@ body .background {
 
 .container main .bottom-navbar > * {
   margin: 0;
+}
+
+.container main .bottom-navbar .btn-dark-mode:hover {
+  color: #e4e5f1;
 }
 
 .container main .filter-tab {

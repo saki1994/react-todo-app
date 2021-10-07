@@ -4,7 +4,7 @@ import List from "./List";
 import Paragraph from "./Paragraph";
 import Button from "./Button";
 
-const Content = ({screenMode}) => {
+const Content = ({ screenMode }) => {
   //An array of list user input
   const [todoList, setTodoList] = useState([
     {
@@ -18,7 +18,9 @@ const Content = ({screenMode}) => {
       listStatus: false,
     },
   ]);
-  const remainingList = todoList.filter(item => item.listStatus === false).length; 
+  const remainingList = todoList.filter(
+    (item) => item.listStatus === false
+  ).length;
 
   const [completedList, setCompletedList] = useState([]);
   const [activeList, setActiveList] = useState([]);
@@ -103,7 +105,14 @@ const Content = ({screenMode}) => {
   };
 
   const renderButton = (text, id, clickEvent) => {
-    return <Button id={id} text={text} handleClick={clickEvent}/>;
+    return (
+      <Button
+        id={id}
+        text={text}
+        handleClick={clickEvent}
+        screenMode={screenMode}
+      />
+    );
   };
 
   const renderMap = (arrayName) => {
@@ -111,12 +120,16 @@ const Content = ({screenMode}) => {
       renderList(item.text, item.id, item.listStatus)
     );
   };
-  
+
   return (
     <main>
       <AddList screenMode={screenMode} addTodoList={addTodoList} />
 
-      <div className={screenMode === "light" ? "todo-box light-mode" : "todo-box dark-mode"} >
+      <div
+        className={
+          screenMode === "light" ? "todo-box light-mode" : "todo-box dark-mode"
+        }
+      >
         <ul>
           {activeBtnClicked && renderMap(activeList)}
           {completedBtnClicked && renderMap(completedList)}
@@ -130,7 +143,7 @@ const Content = ({screenMode}) => {
             {renderButton("Active", "active", handleClick)}
             {renderButton("Completed", "completed", handleClick)}
           </div>
-          {renderButton("Clear Completed", "clearCompleted", handleClick)} 
+          {renderButton("Clear Completed", "clearCompleted", handleClick)}
         </div>
       </div>
 

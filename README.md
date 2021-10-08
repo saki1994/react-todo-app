@@ -148,6 +148,10 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
 27. checkbox label bg in dark mode - done
 > Next: apply box shadows(darkmode)
+
+28. apply box shadows(darkmode) - done
+> Next: Try drag and drop mode
+
 #### Remaining to do
 
 - Dark Mode

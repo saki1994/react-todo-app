@@ -3,21 +3,11 @@ import AddList from "./AddList";
 import List from "./List";
 import Paragraph from "./Paragraph";
 import Button from "./Button";
+import dataList from "./data";
 
 const Content = ({ screenMode }) => {
   //An array of list user input
-  const [todoList, setTodoList] = useState([
-    {
-      text: "Complete online Javascript course",
-      id: 0,
-      listStatus: true,
-    },
-    {
-      text: "Jog around the park 3x",
-      id: 1,
-      listStatus: false,
-    },
-  ]);
+  const [todoList, setTodoList] = useState([...dataList]);
   const remainingList = todoList.filter(
     (item) => item.listStatus === false
   ).length;
@@ -121,8 +111,10 @@ const Content = ({ screenMode }) => {
     );
   };
 
-  const navbarClasses = `filter-tab mobile-size ${screenMode === "light" ? "light-navbar" : "dark-navbar"}`
- 
+  const navbarClasses = `filter-tab mobile-size ${
+    screenMode === "light" ? "light-navbar" : "dark-navbar"
+  }`;
+
   return (
     <main>
       <AddList screenMode={screenMode} addTodoList={addTodoList} />
@@ -147,7 +139,7 @@ const Content = ({ screenMode }) => {
           </div>
           {renderButton("Clear Completed", "clearCompleted", handleClick)}
         </div>
-      </div> 
+      </div>
 
       <div className={navbarClasses}>
         {renderButton("All", "all", handleClick)}

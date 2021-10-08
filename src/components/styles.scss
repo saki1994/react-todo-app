@@ -94,18 +94,18 @@ body {
 
     .light-mode {
       color: $very-dark-grayish-blue;
-      background: rgba(255, 255, 255, 1);
 
       li {
         border-bottom: 1px solid $very-light-grayish-blue;
       }
     }
 
-    .dark-mode {
+    .dark-mode,
+    .dark-navbar {
       color: $very-light-grayish-blue;
       background: $very-dark-grayish-blue;
       border: none;
-
+      box-shadow: 0px 2px 4px 0px $very-light-graying-blue;
       li {
         border-bottom: 1px solid $very-light-graying-blue;
       }
@@ -180,9 +180,9 @@ body {
     }
 
     //for btn in bottom navbar in mobile size
-    .filter-tab { 
+    .filter-tab {
       display: $flex;
-      justify-content: center; 
+      justify-content: center;
       gap: calc(#{$gap} - 20px);
       @include padding(20px);
 
@@ -205,13 +205,13 @@ body {
     }
 
     .dark-navbar {
-      background: $very-dark-grayish-blue;
-      border: none;
-
       button:hover {
         color: $white;
       }
     }
+  }
+  footer {
+    margin: 50px auto;
   }
 }
 
@@ -290,8 +290,8 @@ body {
   background: $white;
 }
 
-.dark-span   {
-  background: $very-dark-grayish-blue; 
+.dark-span {
+  background: $very-dark-grayish-blue;
 }
 
 @media only screen and (max-width: 992px) {

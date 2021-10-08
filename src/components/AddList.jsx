@@ -6,7 +6,7 @@ const AddList = ({ addTodoList, screenMode }) => {
   //variable to save user inputs
   const [textInput, setTextInput] = useState({
     text: "",
-    id: 2,
+    id: 6,
     listStatus: false
   });
   

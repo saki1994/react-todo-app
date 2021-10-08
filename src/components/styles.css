@@ -127,20 +127,23 @@ body .background {
 
 .container main .light-mode {
   color: #393a4c;
-  background: white;
 }
 
 .container main .light-mode li {
   border-bottom: 1px solid #e4e5f1;
 }
 
-.container main .dark-mode {
+.container main .dark-mode,
+.container main .dark-navbar {
   color: #e4e5f1;
   background: #393a4c;
   border: none;
+  -webkit-box-shadow: 0px 2px 4px 0px #4d5066;
+          box-shadow: 0px 2px 4px 0px #4d5066;
 }
 
-.container main .dark-mode li {
+.container main .dark-mode li,
+.container main .dark-navbar li {
   border-bottom: 1px solid #4d5066;
 }
 
@@ -248,13 +251,12 @@ body .background {
   color: #3a7bfd;
 }
 
-.container main .dark-navbar {
-  background: #393a4c;
-  border: none;
-}
-
 .container main .dark-navbar button:hover {
   color: #fff;
+}
+
+.container footer {
+  margin: 50px auto;
 }
 
 .mobile-size {

@@ -145,9 +145,16 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 26. Btn & borders in dark mode - done
     > Next: checkbox label bg in dark mode
 
+
+27. checkbox label bg in dark mode - done
+> Next: apply box shadows(darkmode)
 #### Remaining to do
 
 - Dark Mode
 - Style drag and drop
 - Deploy to Netlify / Heroku
 - Bonus: Add Database
+
+#Finish styling by Friday
+#Study deploy React App over the weekend
+#Deploy Website on Monday-Tuesday

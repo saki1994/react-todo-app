@@ -227,16 +227,17 @@ body .background {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: cal(35px - 10px);
+  gap: calc(35px - 20px);
   padding: 20px;
 }
 
 .container main .filter-tab button {
+  font-weight: 700;
   background: none;
   color: #9394a5;
   cursor: pointer;
   border: none;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .container main .filter-tab button:hover {
@@ -247,7 +248,17 @@ body .background {
   color: #3a7bfd;
 }
 
+.container main .dark-navbar {
+  background: #393a4c;
+  border: none;
+}
+
+.container main .dark-navbar button:hover {
+  color: #fff;
+}
+
 .mobile-size {
+  position: absolute;
   display: none;
   visibility: hidden;
 }
@@ -316,6 +327,14 @@ body .background {
   top: 1px;
   border-radius: 50%;
   border: none;
+}
+
+.light-span {
+  background: #fff;
+}
+
+.dark-span {
+  background: #393a4c;
 }
 
 @media only screen and (max-width: 992px) {

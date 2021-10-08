@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
+const List = ({ text, onDelete, id, onCheckList, listStatus, screenMode }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   const checkBoxStatus = (event) => {
@@ -17,7 +17,7 @@ const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
 
   const handleMouseOut = () => {
     setIsMouseOver(false);
-  }; 
+  };
 
   const renderCheckbox = (labelStyle, spanStyle) => {
     return (
@@ -34,7 +34,12 @@ const List = ({ text, onDelete, id, onCheckList, listStatus }) => {
       {!listStatus && !isMouseOver && renderCheckbox("unhovered-label", "")}
       {!listStatus &&
         isMouseOver &&
-        renderCheckbox("hovered-label", "hovered-span")}
+        renderCheckbox(
+          "hovered-label",
+          screenMode === "light"
+            ? "hovered-span light-span"
+            : "hovered-span dark-span"
+        )}
 
       <span className={listStatus ? "todo-list-inactive" : "todo-list-active"}>
         {text}

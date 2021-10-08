@@ -10,7 +10,7 @@ const Content = ({ screenMode }) => {
     {
       text: "Complete online Javascript course",
       id: 0,
-      listStatus: false,
+      listStatus: true,
     },
     {
       text: "Jog around the park 3x",
@@ -121,6 +121,8 @@ const Content = ({ screenMode }) => {
     );
   };
 
+  const navbarClasses = `filter-tab mobile-size ${screenMode === "light" ? "light-navbar" : "dark-navbar"}`
+ 
   return (
     <main>
       <AddList screenMode={screenMode} addTodoList={addTodoList} />
@@ -145,9 +147,9 @@ const Content = ({ screenMode }) => {
           </div>
           {renderButton("Clear Completed", "clearCompleted", handleClick)}
         </div>
-      </div>
+      </div> 
 
-      <div className="filter-tab mobile-size">
+      <div className={navbarClasses}>
         {renderButton("All", "all", handleClick)}
         {renderButton("Active", "active", handleClick)}
         {renderButton("Completed", "completed", handleClick)}

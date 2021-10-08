@@ -180,18 +180,19 @@ body {
     }
 
     //for btn in bottom navbar in mobile size
-    .filter-tab {
+    .filter-tab { 
       display: $flex;
-      justify-content: center;
-      gap: cal(#{$gap} - 10px);
+      justify-content: center; 
+      gap: calc(#{$gap} - 20px);
       @include padding(20px);
 
       & button {
+        font-weight: 700;
         background: none;
         color: $dark-grayish-blue;
         cursor: $pointer;
         @include border(none);
-        @include font-size(18px);
+        @include font-size(16px);
 
         &:hover {
           color: $very-dark-grayish-blue;
@@ -202,10 +203,20 @@ body {
         }
       }
     }
+
+    .dark-navbar {
+      background: $very-dark-grayish-blue;
+      border: none;
+
+      button:hover {
+        color: $white;
+      }
+    }
   }
 }
 
 .mobile-size {
+  position: absolute;
   display: none;
   visibility: hidden;
 }
@@ -273,6 +284,14 @@ body {
   top: 1px;
   @include border-raduis(50%);
   @include border(none);
+}
+
+.light-span {
+  background: $white;
+}
+
+.dark-span   {
+  background: $very-dark-grayish-blue; 
 }
 
 @media only screen and (max-width: 992px) {

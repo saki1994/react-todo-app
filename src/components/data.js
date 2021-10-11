@@ -23,12 +23,7 @@ const dataList =  [
         text: "Pick up groceries",
         id: 4,
         listStatus: false,
-      },
-      {
-        text: "Complete To Do App on FrontEnd Mentor",
-        id: 5,
-        listStatus: false,
-      } 
+      }
 ]
 
 export default dataList

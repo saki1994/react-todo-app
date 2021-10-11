@@ -4,9 +4,12 @@
   font-family: $font-family;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 html,
 body {
-  overflow-x: hidden;
   @include margin(0);
   @include padding(0);
 
@@ -15,6 +18,8 @@ body {
     position: $absolute;
   }
 }
+
+
 
 .container {
   color: $very-dark-grayish-blue;

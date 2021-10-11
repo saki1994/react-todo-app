@@ -245,7 +245,7 @@ body {
   .checked-span {
     position: $absolute;
     left: 9px;
-    top: 0;
+    top: -2px;
     color: white;
     @include font-size(13px);
     transform: rotate(20deg);
@@ -326,6 +326,10 @@ body {
     visibility: visible;
     display: block;
     position: static;
+  }
+
+  .checked-span {
+    color: white;
   }
  
 }

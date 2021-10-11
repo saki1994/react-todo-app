@@ -334,7 +334,7 @@ body {
   .checked-span::after {
     color: white;
     top: -3px; 
-    left: 10px;
+    left: 0;
     @include font-size(11px);
   }
  

@@ -312,7 +312,7 @@ body {
 @media only screen and (max-width: 768px) {
  
   .container {
-    width: calc(#{$width} - 20%);
+    width: calc(#{$width} - 10%);
   }
   .background {
     height: 250px;

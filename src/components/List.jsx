@@ -41,7 +41,7 @@ const List = ({ text, onDelete, id, onCheckList, listStatus, screenMode }) => {
             : "hovered-span dark-span"
         )}
 
-      <span className={listStatus ? "todo-list-inactive" : "todo-list-active"}>
+      <span className={listStatus ? "todo todo-list-inactive" : "todo todo-list-active"}>
         {text}
       </span>
       {/* Event onClick calls onDelete and pass in the id */}

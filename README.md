@@ -36,3 +36,11 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 - Sarah Atici
 - Frontend Mentor - [@saki1994](https://www.frontendmentor.io/profile/saki1994)
  
+
+ ### Issues for Mobile size 
+
+ 1. Checked input too small
+ 2. Checked icon is black instead of white
+ 3. x button shows when input is checked (should only show on hover)
+ 4. li text overflow
+ 5. x button color on dark mode

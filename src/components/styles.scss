@@ -8,6 +8,7 @@
 html,
 body { 
 	overflow-x: hidden;
+  position: relative;
   @include margin(0);
   @include padding(0);
 
@@ -126,6 +127,10 @@ body {
 
         label input {
           opacity: 0;
+        }
+
+        .todo {
+          width: 70%;
         }
 
         .todo-list-active {
@@ -320,5 +325,10 @@ body {
     visibility: visible;
     display: block;
     position: static;
+  }
+
+  .checked-span::after {
+    content: "";
+    background: $white;
   }
 }

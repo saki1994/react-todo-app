@@ -252,7 +252,7 @@ body {
 
   .checked-span::after {
     content: "✔";
-    color: $white;
+    color: white;
     position: $absolute;
     @include element-size(100%, 100%);
     @include border-raduis(50%);
@@ -327,9 +327,5 @@ body {
     display: block;
     position: static;
   }
-
-  .checked-span::after {
-    content: "";
-    background: $white;
-  }
+ 
 }

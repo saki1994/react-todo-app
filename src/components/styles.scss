@@ -130,6 +130,9 @@ body {
           opacity: 0;
         }
 
+        label span {
+          color: white;
+        }
         .todo {
           width: 70%;
         }
@@ -245,7 +248,7 @@ body {
   .checked-span {
     position: $absolute;
     left: 9px;
-    top: -2px;
+    top: 1px;
     color: white;
     @include font-size(13px);
     transform: rotate(20deg);
@@ -329,7 +332,10 @@ body {
   }
 
   .checked-span {
-    color: white;
+    background-color: white;
+    top: -2px; 
+    @include font-size(12px);
   }
+ 
  
 }

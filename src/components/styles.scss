@@ -4,12 +4,10 @@
   font-family: $font-family;
 }
 
-html {
-  overflow-x: hidden;
-}
-
+ 
 html,
-body {
+body { 
+	overflow-x: hidden;
   @include margin(0);
   @include padding(0);
 
@@ -307,6 +305,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+
+  body, html {
+    overflow-x: hidden;
+  }
   .container {
     width: calc(#{$width} - 20%);
   }

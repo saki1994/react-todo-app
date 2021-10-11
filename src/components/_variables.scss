@@ -34,7 +34,7 @@ $gap: 35px;
 }
 @mixin element-size($w, $h) {
   height: $h;
-  width: $w;
+  width: $w; 
 }
 
 @mixin padding($args...) {

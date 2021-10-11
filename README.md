@@ -154,7 +154,7 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
 #### Remaining to do
 
-- Dark Mode
+ 
 - Style drag and drop
 - Deploy to Netlify / Heroku
 - Bonus: Add Database

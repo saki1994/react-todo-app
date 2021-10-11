@@ -183,8 +183,8 @@ body .background {
 }
 
 .container main ul li button img {
-  height: 80%;
-  width: 80%;
+  max-height: 80%;
+  max-width: 80%;
 }
 
 .container main .bottom-navbar {

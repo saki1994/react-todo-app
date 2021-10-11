@@ -7,22 +7,22 @@ const AddList = ({ addTodoList, screenMode }) => {
   const [textInput, setTextInput] = useState({
     text: "",
     id: 6,
-    listStatus: false
+    listStatus: false,
   });
-  
+
   //event for form keypress
   const handleClick = (event) => {
     // gets call only if enter key is pressed
     if (event.key === "Enter") {
-      addTodoList(textInput)
-      setTextInput(previous => {
+      addTodoList(textInput);
+      setTextInput((previous) => {
         return {
           ...previous,
           text: "",
           id: textInput.id + 1,
-          listStatus: false
-        }
-      }); 
+          listStatus: false,
+        };
+      });
       //prevent website from refreshing
       event.preventDefault();
     }
@@ -31,19 +31,27 @@ const AddList = ({ addTodoList, screenMode }) => {
   //Event for input changes (on time)
   const handleChange = (event) => {
     //save input value to textInput variable.
-    let val = event.target.value;  
-    
-    setTextInput(previous => {
+    let val = event.target.value;
+
+    setTextInput((previous) => {
       return {
         ...previous,
-        text: val 
-      }
+        text: val,
+      };
     });
   };
 
   return (
-    <form className={screenMode === "light" ? "form-light" : "form-dark"} action="#" onKeyPress={handleClick}>
-      <FontAwesomeIcon icon={faCircle} color={screenMode === "light" ? "white" : "hsl(237, 14%, 26%)"} style={{border: "1px solid grey", borderRadius: "50%"}}/>
+    <form
+      className={screenMode === "light" ? "form-light" : "form-dark"}
+      action="#"
+      onKeyPress={handleClick}
+    >
+      <FontAwesomeIcon
+        icon={faCircle}
+        color={screenMode === "light" ? "white" : "hsl(237, 14%, 26%)"}
+        style={{ border: "1px solid grey", borderRadius: "50%" }}
+      />
 
       <input
         className="add-task"

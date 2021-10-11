@@ -121,6 +121,7 @@ body {
       @include padding(0);
 
       li {
+        overflow-x:hidden;
         display: $flex;
         @include margin(auto);
         @include padding(20px);

@@ -245,14 +245,14 @@ body {
   .checked-span {
     position: $absolute;
     left: 9px;
-    top: 1px;
+    top: 0;
+    color: white;
     @include font-size(13px);
     transform: rotate(20deg);
   }
 
   .checked-span::after {
-    content: "✔";
-    color: white;
+    content: "✔"; 
     position: $absolute;
     @include element-size(100%, 100%);
     @include border-raduis(50%);

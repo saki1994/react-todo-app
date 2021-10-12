@@ -266,6 +266,10 @@ body .background {
   visibility: hidden;
 }
 
+.mobile-size button:focus {
+  color: #3a7bfd;
+}
+
 li {
   list-style-type: none;
 }

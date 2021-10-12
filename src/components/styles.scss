@@ -221,7 +221,11 @@ body {
 .mobile-size {
   position: absolute;
   display: none;
-  visibility: hidden;
+  visibility: hidden; 
+
+  button:focus {
+    color: $btn-blue;
+  }
 }
 
 /// new style for checkbox

@@ -6,6 +6,7 @@
 html,
 body {
   overflow-x: hidden;
+  position: relative;
   margin: 0;
   padding: 0;
 }
@@ -154,6 +155,7 @@ body .background {
 }
 
 .container main ul li {
+  overflow-x: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,6 +165,16 @@ body .background {
 
 .container main ul li label input {
   opacity: 0;
+}
+
+.container main ul li label span {
+  color: white;
+}
+
+.container main ul li .todo {
+  width: 70%;
+  word-wrap: normal;
+  word-break: normal;
 }
 
 .container main ul li .todo-list-active {
@@ -280,6 +292,7 @@ body .background {
   position: absolute;
   left: 9px;
   top: 1px;
+  color: white;
   font-size: 13px;
   -webkit-transform: rotate(20deg);
           transform: rotate(20deg);
@@ -287,7 +300,6 @@ body .background {
 
 .checked-label .checked-span::after {
   content: "✔";
-  color: #fff;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -347,7 +359,7 @@ body .background {
 
 @media only screen and (max-width: 768px) {
   .container {
-    width: calc(100% - 20%);
+    width: calc(100% - 10%);
   }
   .background {
     height: 250px;
@@ -360,6 +372,12 @@ body .background {
     visibility: visible;
     display: block;
     position: static;
+  }
+  .checked-span::after {
+    color: white;
+    top: -2px;
+    left: -2px;
+    font-size: 11px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

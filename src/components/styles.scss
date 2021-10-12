@@ -135,6 +135,8 @@ body {
         }
         .todo {
           width: 70%;
+          word-wrap: normal;
+    word-break: normal;
         }
 
         .todo-list-active {

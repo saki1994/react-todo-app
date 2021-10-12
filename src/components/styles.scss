@@ -244,6 +244,10 @@ li {
   //when input is not hovered light mode //
   .label-not-hovered {
     border: 1px solid $dark-grayish-blue;
+
+    img {
+      visibility: hidden;
+    }
   }
 
   // input is not hovered dark mode
@@ -252,6 +256,7 @@ li {
 
     img {
       background: hsl(237, 14%, 26%);
+      visibility: hidden;
     }
   }
 

@@ -14,7 +14,6 @@ const Content = ({ screenMode }) => {
 
   const [completedList, setCompletedList] = useState([]);
   const [activeList, setActiveList] = useState([]);
-
   const [completedBtnClicked, setCompletedBtnClicked] = useState(false);
   const [activeBtnClicked, setActiveBtnClicked] = useState(false);
   const [allBtnClicked, setAllBtnClicked] = useState(true);

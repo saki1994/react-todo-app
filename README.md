@@ -1,6 +1,6 @@
 # Frontend Mentor - To Do App solution
 
-This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW) on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is my solution to [Todo-App](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW) on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of Contents
 
@@ -20,6 +20,14 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
         View the optimal layout depending on their device's screen size
 
+### Links
+
+  * [How to deploy React using netlify](https://www.freecodecamp.org/news/how-to-deploy-react-router-based-app-to-netlify/)
+  * [React conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
+  * [React Event handling](https://reactjs.org/docs/handling-events.html)
+  * [SASS](https://sass-lang.com/)
+  * [Netlify](https://www.netlify.com/)
+
 ### Built with
 
     * ReactJS
@@ -27,9 +35,15 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
     * CSS3
     * SASS
 
+### What I learned
+    
+    I get to practice more about events. Styling and Conditional rendering.
+
 ### Duration
 
-    * Start : September 27, 2021 (Monday)
+    * Start : September 27, 2021  
+    * End : October 12, 2021 
+    * 15 days.
 
 ### Author
 
@@ -38,4 +52,4 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
  
 
 ### Done clean up
- 
+### Drag and drop will add later

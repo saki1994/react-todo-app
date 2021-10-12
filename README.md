@@ -37,15 +37,6 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 - Frontend Mentor - [@saki1994](https://www.frontendmentor.io/profile/saki1994)
  
 
- ### Issues for Mobile size 
-
-1. Filter button hover color doesn't work on iPhone but does on Android
-2. Input check psuedo before and after don't work 
-3. x button not visible on dark mode
-4. Font different on android and iphone
-5. to do list text doesn't wrap
-
-
- ## Steps
-
+### All issues with Mobile browser - done
+### clean up code until Friday
  

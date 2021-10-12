@@ -4,10 +4,9 @@
   font-family: $font-family;
 }
 
- 
 html,
-body { 
-	overflow-x: hidden;
+body {
+  overflow-x: hidden;
   position: relative;
   @include margin(0);
   @include padding(0);
@@ -17,8 +16,6 @@ body {
     position: $absolute;
   }
 }
-
-
 
 .container {
   color: $very-dark-grayish-blue;
@@ -121,18 +118,11 @@ body {
       @include padding(0);
 
       li {
-        overflow-x:hidden;
+        overflow-x: hidden;
         display: $flex;
         @include margin(auto);
         @include padding(20px);
 
-        label input {
-          opacity: 0;
-        }
-
-        label span {
-          color: white;
-        }
         .todo {
           width: 70%;
         }
@@ -234,77 +224,98 @@ body {
   visibility: hidden;
 }
 
-/////  Checkbox styling ///////
+/// new style for checkbox
 
-// for when checkbox is true
-.checked-label {
-  left: 0;
-  cursor: $pointer;
-  background: $gradient-bg;
-  position: $relative;
-  @include element-size(22px, 22px);
-  @include border-raduis(50%);
-
-  .checked-span {
-    position: $absolute;
-    left: 9px;
-    top: 1px;
-    color: white;
-    @include font-size(13px);
-    transform: rotate(20deg);
+li {
+  list-style-type: none;
+  label {
+    border-radius: 50%;
+    height: 17px;
+    width: 16px;
+    padding: 0px 1px 0px 1px;
   }
 
-  .checked-span::after {
-    content: "✔"; 
-    position: $absolute;
-    @include element-size(100%, 100%);
-    @include border-raduis(50%);
+  //when input is not hovered light mode //
+  .label-not-hovered {
+    border: 1px solid $dark-grayish-blue;
   }
 
-  span::before {
-    content: "";
-    opacity: 0;
+  // input is not hovered dark mode
+  .label-not-hovered-dark {
+    border: 1px solid hsl(236, 9%, 61%);
+
+    img {
+      background: hsl(237, 14%, 26%);
+    }
   }
-}
 
-/////////////  unhovered label
+  //when input is hovered -light mode//
+  .label-hovered {
+    background: $gradient-bg;
+    padding: 0px 1px 0px 1px;
+    border-radius: 50%;
+    height: 18px;
+    width: 17px;
+    img {
+      background-color: white;
+      border-radius: 50%;
+      height: 16px;
+      width: 17px;
+      position: relative;
+      top: 1px;
+    }
+  }
 
-.unhovered-label {
-  @include border(1px solid grey);
-  @include element-size(20px, 20px);
-  @include border-raduis(50%);
-  position: $relative;
-  left: 0;
-}
+  //when input if hovered - dark mode
 
-///// hovered label & unchecked input
+  .label-hovered-dark {
+    padding: 0px 1px 0px 1px;
+    border-radius: 50%;
+    height: 18px;
+    width: 17px;
+    background: $gradient-bg;
 
-.hovered-label {
-  @include element-size(22px, 22px);
-  background: $gradient-bg;
-  @include border-raduis(50%);
-  position: $relative;
-  left: 0;
-  cursor: $pointer;
-}
+    img {
+      background-color: $very-dark-grayish-blue;
+      border-radius: 50%;
+      height: 16px;
+      width: 17px;
+      position: relative;
+      top: 1px;
+    }
+  }
 
-.hovered-span {
-  content: "";
-  position: $absolute;
-  @include element-size(19px, 19px);
-  background: $white;
-  left: 1px;
-  top: 1px;
-  @include border-raduis(50%);
-  @include border(none);
-}
+  //When input is checked - light mode 
 
-.light-span {
-  background: $white;
-}
+  .label-checked {
+    background: $gradient-bg;
+    height: 20px;
+    width: 18px;
 
-.dark-span {
-  background: $very-dark-grayish-blue;
+    img {
+      height: 12px;
+      width: 12px;
+      position: relative;
+      top: 4px;
+      left: 3px;
+    }
+  }
+
+  //when input is hovered -dark mode//
+
+  .label-checked-dark {
+    background: $gradient-bg;
+    height: 20px;
+    width: 18px;
+
+    img {
+      height: 12px;
+      width: 12px;
+      position: relative;
+      top: 4px;
+      left: 3px;
+    }
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -314,8 +325,8 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
- 
   .container {
+    font-family: $font-family;
     width: calc(#{$width} - 10%);
   }
   .background {
@@ -329,14 +340,16 @@ body {
     visibility: visible;
     display: block;
     position: static;
+
+    button:hover {
+      color: $btn-blue;
+    }
   }
 
   .checked-span::after {
     color: white;
-    top: -2px; 
+    top: -2px;
     left: -2px;
     @include font-size(11px);
   }
- 
- 
 }

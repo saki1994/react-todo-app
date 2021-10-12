@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   font-family: "Josefin Sans", sans-serif;
 }
@@ -6,6 +5,7 @@
 html,
 body {
   overflow-x: hidden;
+  position: relative;
   margin: 0;
   padding: 0;
 }
@@ -154,6 +154,7 @@ body .background {
 }
 
 .container main ul li {
+  overflow-x: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,8 +162,8 @@ body .background {
   padding: 20px;
 }
 
-.container main ul li label input {
-  opacity: 0;
+.container main ul li .todo {
+  width: 70%;
 }
 
 .container main ul li .todo-list-active {
@@ -265,78 +266,93 @@ body .background {
   visibility: hidden;
 }
 
-.checked-label {
-  left: 0;
-  cursor: pointer;
-  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
-  background: linear-gradient(to bottom right, #57ddff, #c058f3);
-  position: relative;
-  height: 22px;
-  width: 22px;
+li {
+  list-style-type: none;
+}
+
+li label {
   border-radius: 50%;
+  height: 17px;
+  width: 16px;
+  padding: 0px 1px 0px 1px;
 }
 
-.checked-label .checked-span {
-  position: absolute;
-  left: 9px;
-  top: 1px;
-  font-size: 13px;
-  -webkit-transform: rotate(20deg);
-          transform: rotate(20deg);
+li .label-not-hovered {
+  border: 1px solid #9394a5;
 }
 
-.checked-label .checked-span::after {
-  content: "✔";
-  color: #fff;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
+li .label-not-hovered-dark {
+  border: 1px solid #9394a5;
 }
 
-.checked-label span::before {
-  content: "";
-  opacity: 0;
-}
-
-.unhovered-label {
-  border: 1px solid grey;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  position: relative;
-  left: 0;
-}
-
-.hovered-label {
-  height: 22px;
-  width: 22px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
-  background: linear-gradient(to bottom right, #57ddff, #c058f3);
-  border-radius: 50%;
-  position: relative;
-  left: 0;
-  cursor: pointer;
-}
-
-.hovered-span {
-  content: "";
-  position: absolute;
-  height: 19px;
-  width: 19px;
-  background: #fff;
-  left: 1px;
-  top: 1px;
-  border-radius: 50%;
-  border: none;
-}
-
-.light-span {
-  background: #fff;
-}
-
-.dark-span {
+li .label-not-hovered-dark img {
   background: #393a4c;
+}
+
+li .label-hovered {
+  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to bottom right, #57ddff, #c058f3);
+  padding: 0px 1px 0px 1px;
+  border-radius: 50%;
+  height: 18px;
+  width: 17px;
+}
+
+li .label-hovered img {
+  background-color: white;
+  border-radius: 50%;
+  height: 16px;
+  width: 17px;
+  position: relative;
+  top: 1px;
+}
+
+li .label-hovered-dark {
+  padding: 0px 1px 0px 1px;
+  border-radius: 50%;
+  height: 18px;
+  width: 17px;
+  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to bottom right, #57ddff, #c058f3);
+}
+
+li .label-hovered-dark img {
+  background-color: #393a4c;
+  border-radius: 50%;
+  height: 16px;
+  width: 17px;
+  position: relative;
+  top: 1px;
+}
+
+li .label-checked {
+  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to bottom right, #57ddff, #c058f3);
+  height: 20px;
+  width: 18px;
+}
+
+li .label-checked img {
+  height: 12px;
+  width: 12px;
+  position: relative;
+  top: 4px;
+  left: 3px;
+}
+
+li .label-checked-dark {
+  background: -webkit-gradient(linear, left top, right bottom, from(#57ddff), to(#c058f3));
+  background: linear-gradient(to bottom right, #57ddff, #c058f3);
+  height: 20px;
+  width: 18px;
+}
+
+li .label-checked-dark img {
+  height: 12px;
+  width: 12px;
+  position: relative;
+  top: 4px;
+  left: 3px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -347,7 +363,8 @@ body .background {
 
 @media only screen and (max-width: 768px) {
   .container {
-    width: calc(100% - 20%);
+    font-family: "Josefin Sans", sans-serif;
+    width: calc(100% - 10%);
   }
   .background {
     height: 250px;
@@ -360,6 +377,15 @@ body .background {
     visibility: visible;
     display: block;
     position: static;
+  }
+  .mobile-size button:hover {
+    color: #3a7bfd;
+  }
+  .checked-span::after {
+    color: white;
+    top: -2px;
+    left: -2px;
+    font-size: 11px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -39,8 +39,13 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 
  ### Issues for Mobile size 
 
- 1. Checked input too small
- 2. Checked icon is black instead of white
- 3. x button shows when input is checked (should only show on hover)
- 4. li text overflow
- 5. x button color on dark mode
+1. Filter button hover color doesn't work on iPhone but does on Android
+2. Input check psuedo before and after don't work 
+3. x button not visible on dark mode
+4. Font different on android and iphone
+5. to do list text doesn't wrap
+
+
+ ## Steps
+
+ 1. Set up size (Vendor-prefixes)

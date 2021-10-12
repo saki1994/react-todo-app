@@ -48,9 +48,9 @@ const AddList = ({ addTodoList, screenMode }) => {
       onKeyPress={handleClick}
     >
       <FontAwesomeIcon
+        className="header-icon"
         icon={faCircle}
-        color={screenMode === "light" ? "white" : "hsl(237, 14%, 26%)"}
-        style={{ border: "1px solid grey", borderRadius: "50%" }}
+        color={screenMode === "light" ? "white" : "hsl(237, 14%, 26%)"} 
       />
 
       <input

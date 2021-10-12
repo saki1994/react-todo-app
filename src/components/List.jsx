@@ -1,62 +1,68 @@
+/* eslint-disable default-case */
 import React, { useEffect, useState } from "react";
 
-const List = ({ text, onDelete, id, onCheckList, listStatus, screenMode }) => {
+function List({ text, onDelete, id, onCheckList, listStatus, screenMode }) {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [checkIcon, setCheckIcon] = useState("");
   const [addStyleClass, setAddStyleClass] = useState("");
+  const darkCheckIcon = "/images/icon-check-dark.svg";
+  const lightCheckIcon = "/images/icon-check-light.svg";
 
-  const checkBoxStatus = (event) => {
+  function checkBoxStatus(event) {
     onCheckList(id, event.target.checked);
-    console.log("click");
-  };
+  }
 
-  const handleClick = () => {
+  function handleClick() {
     onDelete(id);
-  };
+  }
 
-  const handleMouseOver = () => {
+  function handleMouseOver() {
     setIsMouseOver(true);
-  };
+  }
 
-  const handleMouseOut = () => {
+  function handleMouseOut() {
     setIsMouseOver(false);
-  };
-  // "/images/icon-check-dark.svg"
+  }
 
   useEffect(() => {
-    //for light mode
+    //icon and classes for light mode
     if (screenMode === "light") {
-      setCheckIcon("/images/icon-check-light.svg");
+      setCheckIcon(lightCheckIcon);
 
       //Add class depends on input status - light mode
-      if (listStatus) {
-        setAddStyleClass("label-checked");
-      } else if (!isMouseOver) {
-        setAddStyleClass("label-not-hovered");
-      } else if (isMouseOver && !listStatus) {
-        setAddStyleClass("label-hovered");
-      }
+      switch (true) {
+        case listStatus:
+          setAddStyleClass("label-checked");
+          break;
+        case !isMouseOver:
+          setAddStyleClass("label-not-hovered");
+          break;
+        case isMouseOver && !listStatus:
+          setAddStyleClass("label-hovered");
+          break;
+      } //end of switch statement
     } //end of "if" for light mode
 
-    //for dark mode
+
+    //icon and classes for dark mode
     else if (screenMode === "dark") {
       //apply dark check when input is false
-      if (!listStatus) {
-        setCheckIcon("/images/icon-check-dark.svg");
-      }
-      //apply white check when input is true
-      else {
-        setCheckIcon("/images/icon-check-light.svg");
-      }
+      !listStatus
+        ? setCheckIcon(darkCheckIcon)
+        : setCheckIcon(lightCheckIcon);
 
       //Add class depends on input status - dark mode
-      if (listStatus) {
-        setAddStyleClass("label-checked-dark");
-      } else if (!isMouseOver) {
-        setAddStyleClass("label-not-hovered-dark");
-      } else if (isMouseOver && !listStatus) {
-        setAddStyleClass("label-hovered-dark");
-      }
+      switch (true) {
+        case listStatus:
+          setAddStyleClass("label-checked-dark");
+          break;
+        case !isMouseOver:
+          setAddStyleClass("label-not-hovered-dark");
+          break;
+        case isMouseOver && !listStatus:
+          setAddStyleClass("label-hovered-dark");
+          break;
+      } //end of switch statement
     } //end of "else if" for dark mode
   }, [checkIcon, screenMode, listStatus, isMouseOver]);
 
@@ -65,16 +71,13 @@ const List = ({ text, onDelete, id, onCheckList, listStatus, screenMode }) => {
       <label className={addStyleClass}>
         <img src={checkIcon} alt="check-icon"></img>
         <input
-          style={{ position: "absolute", visibility: "hidden" }}
           type="checkbox"
           onChange={checkBoxStatus}
         ></input>
       </label>
 
       <span
-        className={
-          listStatus ? "todo todo-list-inactive" : "todo todo-list-active"
-        }
+        className={listStatus ? "todo todo-list-inactive" : "todo todo-list-active"}
       >
         {text}
       </span>
@@ -87,6 +90,6 @@ const List = ({ text, onDelete, id, onCheckList, listStatus, screenMode }) => {
       </button>
     </li>
   );
-};
+}
 
 export default List;

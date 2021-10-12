@@ -37,6 +37,5 @@ This is a solution to the [Todo-App](https://www.frontendmentor.io/challenges/to
 - Frontend Mentor - [@saki1994](https://www.frontendmentor.io/profile/saki1994)
  
 
-### All issues with Mobile browser - done
-### clean up code until Friday
+### Done clean up
  

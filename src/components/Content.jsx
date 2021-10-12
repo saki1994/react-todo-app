@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { useState } from "react";
 import AddList from "./AddList";
 import List from "./List";
@@ -8,76 +9,85 @@ import dataList from "./data";
 const Content = ({ screenMode }) => {
   //An array of list user input
   const [todoList, setTodoList] = useState([...dataList]);
-  const remainingList = todoList.filter(
-    (item) => item.listStatus === false
-  ).length;
-
   const [completedList, setCompletedList] = useState([]);
   const [activeList, setActiveList] = useState([]);
   const [completedBtnClicked, setCompletedBtnClicked] = useState(false);
   const [activeBtnClicked, setActiveBtnClicked] = useState(false);
   const [allBtnClicked, setAllBtnClicked] = useState(true);
+  const remainingList = todoList.filter(
+    (item) => item.listStatus === false
+  ).length;
 
   // function to add a list.
-  const addTodoList = (inputList) => {
+  function addTodoList(inputList) {
     setTodoList((prev) => {
       return [...prev, inputList];
     });
-  };
+  }
 
   //Function to delete a list
-  const deleteList = (id) => {
+  function deleteList(id) {
     //return all list except the list with param(id)
     setTodoList((prev) => {
       return prev.filter((item) => {
         return item.id !== id;
       });
     });
-  };
+  }
 
   //Change status of a list to true
-  const isCheckboxClick = (id, value) => {
+  function isCheckboxClick(id, value) {
+    //find index of the current id
     let elementIndex = todoList.findIndex((element) => element.id === id);
+    //copy all todolist item inside var newArr
     let newArr = [...todoList];
-
     newArr[elementIndex] = { ...newArr[elementIndex], listStatus: value };
-
     setTodoList(newArr);
-  };
+  }
 
-  const handleClick = (id) => {
+  function handleClick(id) {
+    //const for all list which are done
     const getAllTrue = todoList.filter((item) => {
       return item.listStatus === true;
     });
 
+    //const for all list which are not done
     const getAllFalse = todoList.filter((item) => {
       return item.listStatus === false;
     });
 
+    //const for all list done and not done
     const allItem = [...todoList];
 
-    if (id === "completed") {
-      setCompletedList(getAllTrue);
-      setCompletedBtnClicked(true);
-      setActiveBtnClicked(false);
-      setAllBtnClicked(false);
-    } else if (id === "active") {
-      setActiveList(getAllFalse);
-      setCompletedBtnClicked(false);
-      setActiveBtnClicked(true);
-      setAllBtnClicked(false);
-    } else if (id === "all") {
-      setAllBtnClicked(allItem);
-      setCompletedBtnClicked(false);
-      setActiveBtnClicked(false);
-    } else if (id === "clearCompleted") {
-      setTodoList((allItems) => {
-        return allItems.filter((item) => {
-          return item.listStatus !== true;
-        });
-      });
+    //Avoid repeating this inside switch statement
+    function setCondition(completed, active, all) {
+      setCompletedBtnClicked(completed);
+      setActiveBtnClicked(active);
+      setAllBtnClicked(all);
     }
-  };
+
+    switch (id) {
+      case "completed":
+        setCompletedList(getAllTrue);
+        setCondition(true, false, false);
+        break;
+      case "active":
+        setActiveList(getAllFalse);
+        setCondition(false, true, false);
+        break;
+      case "all":
+        setAllBtnClicked(allItem);
+        setCondition(false, false, true);
+        break;
+      case "clearCompleted":
+        setTodoList((allItems) => {
+          return allItems.filter((item) => {
+            return item.listStatus !== true;
+          });
+        });
+        break;
+    }
+  }
 
   const renderList = (text, id, listStatus) => {
     return (
@@ -110,12 +120,14 @@ const Content = ({ screenMode }) => {
     );
   };
 
+  //set up class for mobile size and condition if light or dark mode
   const navbarClasses = `filter-tab mobile-size ${
     screenMode === "light" ? "light-navbar" : "dark-navbar"
   }`;
 
   return (
     <main>
+      {/* Adding a new to do list */}
       <AddList screenMode={screenMode} addTodoList={addTodoList} />
 
       <div
@@ -124,6 +136,7 @@ const Content = ({ screenMode }) => {
         }
       >
         <ul>
+          {/* render page if All, Active or Completed btn is clicked*/}
           {activeBtnClicked && renderMap(activeList)}
           {completedBtnClicked && renderMap(completedList)}
           {allBtnClicked && renderMap(todoList)}
@@ -131,6 +144,7 @@ const Content = ({ screenMode }) => {
         <div className="bottom-navbar">
           <Paragraph text={remainingList + " items left"} />
 
+          {/* This div renders only on desktop size*/}
           <div className="desktop-size">
             {renderButton("All", "all", handleClick)}
             {renderButton("Active", "active", handleClick)}
@@ -140,6 +154,7 @@ const Content = ({ screenMode }) => {
         </div>
       </div>
 
+      {/* This div renders only on mobile size*/}
       <div className={navbarClasses}>
         {renderButton("All", "all", handleClick)}
         {renderButton("Active", "active", handleClick)}

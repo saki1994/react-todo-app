@@ -54,6 +54,11 @@ body {
     .form-dark {
       @include padding(6px 0 5px 20px);
 
+      .header-icon {
+        border: 1px solid grey;
+        border-radius: 50%;
+      }
+
       .add-task {
         outline: none;
         width: calc(#{$width} - 40%);
@@ -126,7 +131,7 @@ body {
         .todo {
           width: 70%;
           word-wrap: normal;
-    word-break: normal;
+          word-break: normal;
         }
 
         .todo-list-active {
@@ -223,7 +228,7 @@ body {
 .mobile-size {
   position: absolute;
   display: none;
-  visibility: hidden; 
+  visibility: hidden;
 
   button:focus {
     color: $btn-blue;
@@ -239,6 +244,11 @@ li {
     height: 17px;
     width: 16px;
     padding: 0px 1px 0px 1px;
+
+    input {
+      position: absolute;
+      visibility: hidden;
+    }
   }
 
   //when input is not hovered light mode //
@@ -252,10 +262,10 @@ li {
 
   // input is not hovered dark mode
   .label-not-hovered-dark {
-    border: 1px solid hsl(236, 9%, 61%);
+    border: 1px solid $dark-grayish-blue;
 
     img {
-      background: hsl(237, 14%, 26%);
+      background: $very-dark-grayish-blue;
       visibility: hidden;
     }
   }
@@ -265,13 +275,11 @@ li {
     background: $gradient-bg;
     padding: 0px 1px 0px 1px;
     border-radius: 50%;
-    height: 18px;
-    width: 17px;
+    @include element-size(17px, 18px);
     img {
       background-color: white;
       border-radius: 50%;
-      height: 16px;
-      width: 17px;
+      @include element-size(17px, 16px);
       position: relative;
       top: 1px;
     }
@@ -282,33 +290,29 @@ li {
   .label-hovered-dark {
     padding: 0px 1px 0px 1px;
     border-radius: 50%;
-    height: 18px;
-    width: 17px;
     background: $gradient-bg;
+    @include element-size(17px, 18px);
 
     img {
-      background-color: $very-dark-grayish-blue;
-      border-radius: 50%;
-      height: 16px;
-      width: 17px;
       position: relative;
       top: 1px;
+      background-color: $very-dark-grayish-blue;
+      @include element-size(17px, 16px);
+      @include border-raduis(50%);
     }
   }
 
-  //When input is checked - light mode 
+  //When input is checked - light mode
 
   .label-checked {
     background: $gradient-bg;
-    height: 20px;
-    width: 18px;
+    @include element-size(18px, 20px);
 
     img {
-      height: 12px;
-      width: 12px;
       position: relative;
       top: 4px;
       left: 3px;
+      @include element-size(12px, 12px);
     }
   }
 
@@ -316,15 +320,13 @@ li {
 
   .label-checked-dark {
     background: $gradient-bg;
-    height: 20px;
-    width: 18px;
+    @include element-size(18px, 20px);
 
     img {
-      height: 12px;
-      width: 12px;
       position: relative;
       top: 4px;
       left: 3px;
+      @include element-size(12px, 12px);
     }
   }
 }
@@ -352,7 +354,7 @@ li {
     display: block;
     position: static;
 
-    button:hover {
+    button:focus {
       color: $btn-blue;
     }
   }

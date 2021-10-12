@@ -40,12 +40,11 @@ const App = () => {
         src={`/images/bg-${screenBgSize}-${screenMode}.jpg`} 
         alt="background-light"
       />
-      <div className="container">
+      <div className="container"> 
         <Header screenMode={screenMode} event={clickEvent}/>
         <Content screenMode={screenMode}/>
         <Footer />
       </div>
-       
     </div>
   ); 
 };

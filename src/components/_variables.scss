@@ -4,6 +4,11 @@ $absolute: absolute;
 $relative: relative;
 $flex: flex;
 
+@mixin position($top, $left) {
+  top: $top;
+  left: $left;
+}
+
 //Typography
 $font-family: "Josefin Sans", sans-serif;
 $btn-blue: hsl(220, 98%, 61%);
